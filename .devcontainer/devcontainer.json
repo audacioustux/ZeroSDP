@@ -29,7 +29,9 @@
       },
       "ghcr.io/devcontainers/features/git:1": {},
       "ghcr.io/devcontainers/features/github-cli": {},
-      "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {},
+      "ghcr.io/devcontainers/features/kubectl-helm-minikube:1": {
+        "minikube": "none"
+      },
       "ghcr.io/devcontainers/features/go:1": {},
       "ghcr.io/audacioustux/devcontainers/common-utils-extras:1": {},
       "ghcr.io/audacioustux/devcontainers/pulumi:1": {}
@@ -39,4 +41,4 @@
     "postStartCommand": {
       "minikube": "nohup bash -c 'minikube status || minikube start && minikube tunnel --bind-address 0.0.0.0 &' > /tmp/minikube.log 2>&1"
     }
-  }
+}
