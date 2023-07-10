@@ -5,13 +5,9 @@ set -eax
 # clean up any untracked files
 minikube delete
 # start minikube
-CPU_COUNT=4
-MEMORY=6144
-minikube start \
-    --cpus=$CPU_COUNT \
-    --memory=$MEMORY 
+minikube start --cpus max --memory max --driver=docker --cni=cilium -p sdp
 # use minikube's docker daemon
-echo "eval \$(minikube docker-env)" >> ~/.zshrc
+echo "eval \$(minikube -p sdp docker-env)" >> ~/.zshrc
 
 # if no backend url is specified - check for access token and use cloud backend
 if [[ -z "$PULUMI_BACKEND_URL" ]]; then
