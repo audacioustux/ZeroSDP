@@ -3,9 +3,9 @@
 set -eax
 
 # clean up any untracked files
-minikube delete
+minikube delete -p sdp
 # start minikube
-minikube start --cpus max --memory max --driver=docker --cni=cilium -p sdp
+minikube start --cpus 8 --memory 8g --driver=docker --cni=cilium -p sdp
 # use minikube's docker daemon
 echo "eval \$(minikube -p sdp docker-env)" >> ~/.zshrc
 
