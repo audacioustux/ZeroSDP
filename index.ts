@@ -1,4 +1,7 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as k8s from "@pulumi/kubernetes";
 
-import "./components/argocd";
+import "./bootstrap"
+
+import "./apps/cert-manager"
+import "./apps/argocd"

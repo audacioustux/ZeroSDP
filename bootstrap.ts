@@ -1,12 +1,12 @@
 import * as k8s from "@pulumi/kubernetes";
-import { useNamespace } from "../utils";
+import { Config } from "@pulumi/pulumi";
+import { argoproj } from "./crds/argocd-application";
+import { useNamespace } from "./utils";
 
 export const config = {
-    name: "argocd",
+    name: "argo-cd",
     namespace: "argocd",
-    manifest: {
-        file: "https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml"
-    }
+    manifest: "https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.7/manifests/install.yaml"
 }
 
 export const namespace = new k8s.core.v1.Namespace(`${config.name}-ns`, {
@@ -16,6 +16,6 @@ export const namespace = new k8s.core.v1.Namespace(`${config.name}-ns`, {
 });
 
 export const bootstrap = new k8s.yaml.ConfigFile(`${config.name}-bootstrap`, {
-    file: config.manifest.file,
+    file: config.manifest,
     transformations: [useNamespace(namespace)],
 });
