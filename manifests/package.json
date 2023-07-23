@@ -1,0 +1,11 @@
+{
+    "name": "manifests",
+    "main": "index.ts",
+    "devDependencies": {
+        "@types/node": "^20"
+    },
+    "dependencies": {
+        "@pulumi/pulumi": "^3.0.0",
+        "@pulumi/kubernetes": "^4.0.0"
+    }
+}

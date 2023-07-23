@@ -1,0 +1,3 @@
+name: manifests
+runtime: nodejs
+description: YAML-less Manifests as Code

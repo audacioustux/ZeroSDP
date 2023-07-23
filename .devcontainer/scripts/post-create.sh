@@ -32,7 +32,7 @@ fi
 # set stack name to dev if not set
 : ${PULUMI_STACK_NAME:=dev}
 
-# create stack if it doesn't exist
-pulumi stack select -s $PULUMI_STACK_NAME --create
+# create stack
+pulumi stack init $PULUMI_STACK_NAME -C manifests
 # update stack
-pulumi up -y --refresh -s $PULUMI_STACK_NAME --suppress-outputs
+pulumi up -y -s $PULUMI_STACK_NAME -C manifests
