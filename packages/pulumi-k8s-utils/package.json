@@ -1,0 +1,5 @@
+{
+  "name": "@audacioustux/pulumi-k8s-utils",
+  "version": "1.0.0",
+  "main": "index.ts"
+}

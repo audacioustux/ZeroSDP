@@ -34,5 +34,7 @@ fi
 
 # create stack
 pulumi stack init $PULUMI_STACK_NAME -C manifests
+# disable default providers
+pulumi config set --path 'pulumi:disable-default-providers[0]' '*' -C manifests
 # update stack
-pulumi up -y -s $PULUMI_STACK_NAME -C manifests
+pulumi up -y -f -C manifests

@@ -1,0 +1,9 @@
+{
+    "name": "sdp",
+    "private": true,
+    "packageManager": "npm@9.8.0",
+    "workspaces": [
+        "manifests",
+        "packages/*"
+    ]
+}
