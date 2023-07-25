@@ -1,5 +1,5 @@
 {
-    "name": "manifests",
+    "name": "bootstrap",
     "main": "index.ts",
     "scripts": {
         "up": "pulumi up"

@@ -1,0 +1,5 @@
+encryptionsalt: v1:5NPFlnFWX5s=:v1:DDniOSVnPXNyDZ5c:nrF8BocUGRVpFXnztK+91hTC07LKOQ==
+config:
+  # kubernetes:strictMode: "true"
+  # pulumi:disable-default-providers:
+  #   - '*'
