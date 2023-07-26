@@ -1,14 +1,14 @@
 {
     "name": "bootstrap",
-    "main": "bin/index.js",
+    "main": "build/main.js",
     "type": "module",
     "scripts": {
         "build": "tsc",
-        "up": "npm run build && pulumi up"
+        "pulumi:up": "pulumi up -y -s dev"
     },
     "devDependencies": {
         "@types/node": "^20",
-        "typescript": "^5"
+        "typescript": "next"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3",

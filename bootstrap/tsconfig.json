@@ -1,18 +1,24 @@
 {
     "compilerOptions": {
-        "strict": true,
-        "outDir": "bin",
+        "outDir": "build",
         "target": "ESNext",
-        "module": "ESNext",
-        "moduleResolution": "node",
+        "module": "NodeNext",
+        "moduleResolution": "NodeNext",
+        "strict": true,
+        "alwaysStrict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "strictFunctionTypes": true,
+        "strictPropertyInitialization": true,
+        "noImplicitThis": true,
         "sourceMap": false,
         "experimentalDecorators": true,
         "pretty": true,
         "noFallthroughCasesInSwitch": true,
         "noImplicitReturns": true,
-        "forceConsistentCasingInFileNames": true
+        "forceConsistentCasingInFileNames": true,
     },
     "files": [
-        "index.ts"
+        "main.ts"
     ]
 }

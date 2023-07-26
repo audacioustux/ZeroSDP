@@ -6,5 +6,14 @@
         "manifests",
         "bootstrap",
         "packages/*"
-    ]
+    ],
+    "scripts": {
+        "build": "turbo build",
+        "pulumi:up": "turbo pulumi:up"
+    },
+    "devDependencies": {
+        "@types/node": "^20",
+        "typescript": "next",
+        "turbo": "^1"
+    }
 }

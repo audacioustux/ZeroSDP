@@ -1,3 +1,6 @@
 name: manifests
-runtime: nodejs
+runtime: 
+  name: nodejs
+  options:
+    typescript: false
 description: YAML-less Manifests as Code

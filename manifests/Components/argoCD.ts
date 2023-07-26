@@ -1,6 +1,6 @@
 import * as k8s from "@pulumi/kubernetes";
 import { ComponentResourceOptions } from "@pulumi/pulumi";
-import { ComponentManifest } from "./ComponentManifest";
+import { ComponentManifest } from "./componentManifest.js";
 
 export interface ArgoCDArgs {
     version: string;
@@ -16,6 +16,6 @@ export class ArgoCD extends ComponentManifest {
             file: `https://raw.githubusercontent.com/argoproj/argo-cd/v${version}/manifests/install.yaml`
         }, { parent: this });
 
-        this.registerOutputs();
+        this.registerOutputs({ manifest });
     }
 }

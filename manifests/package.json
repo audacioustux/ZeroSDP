@@ -1,14 +1,10 @@
 {
     "name": "manifests",
-    "main": "bin/index.js",
+    "main": "build/main.js",
     "type": "module",
     "scripts": {
         "build": "tsc",
-        "up": "npm run build && pulumi up"
-    },
-    "devDependencies": {
-        "@types/node": "^20",
-        "typescript": "^5"
+        "pulumi:up": "pulumi up -y -s dev"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3",

@@ -1,7 +1,7 @@
 import * as k8s from "@pulumi/kubernetes";
 import { getStack, StackReference, getOrganization } from "@pulumi/pulumi";
 
-export const manifest_stack = new StackReference(`${getOrganization()}/manifests/${getStack()}`);
+const manifest_stack = new StackReference(`${getOrganization()}/manifests/${getStack()}`);
 
 const argocd = await manifest_stack.getOutputValue("argocd")
 
