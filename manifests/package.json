@@ -1,14 +1,17 @@
 {
     "name": "manifests",
-    "main": "index.ts",
+    "main": "bin/index.js",
+    "type": "module",
     "scripts": {
-        "up": "pulumi up"
+        "build": "tsc",
+        "up": "npm run build && pulumi up"
     },
     "devDependencies": {
-        "@types/node": "^20"
+        "@types/node": "^20",
+        "typescript": "^5"
     },
     "dependencies": {
-        "@pulumi/pulumi": "^3.0.0",
-        "@pulumi/kubernetes": "^4.0.0"
+        "@pulumi/pulumi": "^3",
+        "@pulumi/kubernetes": "^4"
     }
 }
