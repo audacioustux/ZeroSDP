@@ -32,9 +32,6 @@ fi
 # set stack name to dev if not set
 : ${PULUMI_STACK_NAME:=dev}
 
-# create stack
-pulumi stack init $PULUMI_STACK_NAME -C manifests
-# disable default providers
-pulumi config set --path 'pulumi:disable-default-providers[0]' '*' -C manifests
 # update stack
-pulumi up -y -f -C manifests
+# npm run pulumi:stacks:update $PULUMI_STACK_NAME
+npm run pulumi:up

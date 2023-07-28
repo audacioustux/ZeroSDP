@@ -2,9 +2,10 @@
     "name": "bootstrap",
     "main": "build/main.js",
     "type": "module",
+    "private": true,
     "scripts": {
         "build": "tsc",
-        "pulumi:up": "pulumi up -y -s dev"
+        "pulumi:up": "pulumi up -y -f -s dev"
     },
     "devDependencies": {
         "@types/node": "^20",

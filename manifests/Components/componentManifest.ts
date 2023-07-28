@@ -3,7 +3,7 @@ import { Input, Inputs, ComponentResource, ComponentResourceOptions } from "@pul
 import { getStack } from "@pulumi/pulumi";
 
 export class ComponentManifest extends ComponentResource {
-    path: Input<string>;
+    directory: Input<string>;
 
     constructor(type: string, name: string, args?: Inputs, opts?: ComponentResourceOptions) {
         const renderYamlToDirectory = `./rendered/${getStack()}/${name}`;
@@ -14,6 +14,6 @@ export class ComponentManifest extends ComponentResource {
 
         super(`components:${type}`, name, args, { provider, ...opts });
 
-        this.path = renderYamlToDirectory;
+        this.directory = renderYamlToDirectory;
     }
 }
