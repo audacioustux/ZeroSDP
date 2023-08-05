@@ -5,11 +5,8 @@
     "private": true,
     "scripts": {
         "build": "tsc",
-        "pulumi:up": "pulumi up -y -f -s dev"
-    },
-    "devDependencies": {
-        "@types/node": "^20",
-        "typescript": "next"
+        "pulumi:up": "pulumi up -y --refresh -s ${PULUMI_STACK_NAME:?} --skip-preview",
+        "pulumi:stack:select": "pulumi stack select -s ${PULUMI_STACK_NAME:?} --create"
     },
     "dependencies": {
         "@pulumi/pulumi": "^3",

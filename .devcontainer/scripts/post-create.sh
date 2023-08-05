@@ -29,9 +29,7 @@ if [[ -n "$PULUMI_DEFAULT_ORG" ]]; then
     pulumi org set-default $PULUMI_DEFAULT_ORG
 fi
 
-# set stack name to dev if not set
-: ${PULUMI_STACK_NAME:=dev}
+export PULUMI_STACK_NAME=dev
 
-# update stack
-# npm run pulumi:stacks:update $PULUMI_STACK_NAME
-npm run pulumi:up
+# bootstrap sdp
+npm run bootstrap

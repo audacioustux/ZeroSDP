@@ -8,8 +8,7 @@
         "packages/*"
     ],
     "scripts": {
-        "build": "turbo build",
-        "pulumi:up": "turbo pulumi:up"
+        "bootstrap": "turbo bootstrap --env-mode=strict"
     },
     "devDependencies": {
         "@types/node": "^20",

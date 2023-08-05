@@ -9,18 +9,43 @@
                 "build/**"
             ]
         },
-        "manifests#pulumi:up": {
+        "manifests#cdk8s:import": {
             "dependsOn": [
                 "build"
             ],
             "outputs": [
-                "rendered/**"
+                "imports/**"
+            ],
+            "inputs": [
+                "cdk8s.yaml"
+            ]
+        },
+        "manifests#cdk8s:synth": {
+            "dependsOn": [
+                "cdk8s:import"
+            ],
+            "outputs": [
+                "dist/**"
+            ]
+        },
+        "bootstrap#pulumi:stack:select": {
+            "env": [
+                "PULUMI_*"
             ]
         },
         "bootstrap#pulumi:up": {
             "dependsOn": [
                 "build",
-                "manifests#pulumi:up"
+                "pulumi:stack:select",
+                "manifests#cdk8s:synth"
+            ],
+            "env": [
+                "PULUMI_*"
+            ]
+        },
+        "bootstrap": {
+            "dependsOn": [
+                "bootstrap#pulumi:up"
             ]
         }
     }

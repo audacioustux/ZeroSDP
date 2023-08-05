@@ -1,0 +1,10 @@
+language: typescript
+app: node build/main.js
+imports:
+  - k8s
+  - https://raw.githubusercontent.com/argoproj/argo-cd/v2.7.7/manifests/crds/application-crd.yaml
+  - https://github.com/cert-manager/cert-manager/releases/download/v1.12.3/cert-manager.crds.yaml
+validations:
+  - package: '@datreeio/datree-cdk8s'
+    class: DatreeValidation
+    version: 1.3.5
