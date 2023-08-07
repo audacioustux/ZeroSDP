@@ -20,9 +20,18 @@
                 "cdk8s.yaml"
             ]
         },
+        "manifests#helm:load": {
+            "dependsOn": [
+                "build"
+            ],
+            "inputs": [
+                "helm-repos.yaml"
+            ]
+        },
         "manifests#cdk8s:synth": {
             "dependsOn": [
-                "cdk8s:import"
+                "manifests#cdk8s:import",
+                "manifests#helm:load"
             ],
             "outputs": [
                 "dist/**"
