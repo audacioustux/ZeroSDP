@@ -65,7 +65,7 @@ export class ArgoCD extends Chart {
                 source: {
                     path: 'manifests/dist',
                     directory: {
-                        include: "argocd.k8s.yaml"
+                        include: "argo-cd.k8s.yaml"
                     },
                     repoUrl: "https://github.com/audacioustux/sdp.git",
                     targetRevision: 'HEAD',
