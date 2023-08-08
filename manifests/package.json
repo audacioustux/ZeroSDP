@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc --build",
     "cdk8s:import": "cdk8s import",
-    "cdk8s:synth": "cdk8s synth",
+    "cdk8s:synth": "cdk8s synth -o dist",
     "helm:load": "./scripts/load-helm.sh helm-repos.yaml"
   },
   "dependencies": {
@@ -15,6 +15,6 @@
     "constructs": "^10"
   },
   "devDependencies": {
-    "cdk8s-cli": "^2"
+    "cdk8s-cli": "^2.*"
   }
 }
