@@ -4,3 +4,9 @@ runtime:
   options:
     typescript: false
 description: Bootstraps SDP on Kubernetes Cluster
+config:
+  manifest:
+    type: string
+    description: Path to the bootstrap manifest
+  pulumi:disable-default-providers:
+    - '*'

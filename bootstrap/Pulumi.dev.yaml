@@ -1,1 +1,3 @@
 encryptionsalt: v1:o5zK4yBfPfc=:v1:E4IUrUFwvrXIl1VR:ezExvtHljP8dSZWadmTdLodUgxeuhA==
+config:
+  bootstrap:manifest: ../manifests/dist/argocd.k8s.yaml
