@@ -28,7 +28,7 @@ export class ArgoCD extends Chart {
                 autoscaling: {
                     enabled: true,
                     minReplicas: 2
-                }
+                },
             },
             repoServer: {
                 autoscaling: {

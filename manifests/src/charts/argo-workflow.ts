@@ -10,7 +10,7 @@ export class ArgoWorkflow extends Chart {
         const app = new Application(this, 'app', {
             metadata: {
                 name: "argo-workflows",
-                namespace: "argo",
+                namespace: "argocd",
             },
             spec: {
                 destination: {
