@@ -10,9 +10,6 @@
             ]
         },
         "manifests#cdk8s:import": {
-            "dependsOn": [
-                "build"
-            ],
             "outputs": [
                 "imports/**"
             ],
@@ -21,9 +18,6 @@
             ]
         },
         "manifests#helm:load": {
-            "dependsOn": [
-                "build"
-            ],
             "inputs": [
                 "helm-repos.yaml"
             ]
