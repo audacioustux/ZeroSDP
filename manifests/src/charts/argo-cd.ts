@@ -17,7 +17,7 @@ export class ArgoCD extends Chart {
             },
         });
 
-        const values = props.ha ? {
+        const ha_values = {
             "redis-ha": {
                 enabled: true
             },
@@ -39,16 +39,12 @@ export class ArgoCD extends Chart {
             applicationSet: {
                 replicaCount: 2
             }
-        } : {};
+        };
 
         const helm = new Helm(this, 'helm', {
             releaseName: "argocd",
             chart: "argo/argo-cd",
-            helmFlags: [
-                "--set", "installCRDs=true",
-                "--namespace", namespace.name
-            ],
-            values
+            values: props.ha ? ha_values : {},
         });
 
         const app = new Application(this, 'app', {
