@@ -11,7 +11,7 @@ spec:
   source:
     chart: argo-workflows
     repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: v3.4.9
+    targetRevision: 0.32.1
   syncPolicy:
     automated:
       prune: true

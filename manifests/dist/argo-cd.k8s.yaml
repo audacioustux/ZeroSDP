@@ -17628,7 +17628,7 @@ spec:
   project: default
   source:
     directory:
-      include: argocd.k8s.yaml
+      include: argo-cd.k8s.yaml
     path: manifests/dist
     repoURL: https://github.com/audacioustux/sdp.git
     targetRevision: HEAD

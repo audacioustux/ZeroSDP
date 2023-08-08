@@ -21,7 +21,7 @@ export class ArgoWorkflow extends Chart {
                 source: {
                     chart: "argo-workflows",
                     repoUrl: "https://argoproj.github.io/argo-helm",
-                    targetRevision: 'v3.4.9'
+                    targetRevision: '0.32.1'
                 },
                 syncPolicy: {
                     automated: {
