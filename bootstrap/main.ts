@@ -1,5 +1,5 @@
 import * as k8s from "@pulumi/kubernetes";
-import { getStack, StackReference, getOrganization, Config } from "@pulumi/pulumi";
+import { Config } from "@pulumi/pulumi";
 
 const k8sProvider = new k8s.Provider("k8s");
 

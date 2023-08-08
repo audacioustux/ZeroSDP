@@ -22,25 +22,25 @@ export class ArgoCD extends Chart {
       ],
       values: {
         "redis-ha": {
-          // enabled: true
+          enabled: true
         },
         controller: {
           replicas: 1
         },
         server: {
-          // autoscaling: {
-          //   enabled: true,
-          //   minReplicas: 2
-          // }
+          autoscaling: {
+            enabled: true,
+            minReplicas: 2
+          }
         },
         repoServer: {
-          // autoscaling: {
-          //   enabled: true,
-          //   minReplicas: 2
-          // },
+          autoscaling: {
+            enabled: true,
+            minReplicas: 2
+          },
         },
         applicationSet: {
-          // replicaCount: 2
+          replicaCount: 2
         }
       },
     });
