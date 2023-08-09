@@ -19,6 +19,6 @@
         "forceConsistentCasingInFileNames": true,
     },
     "files": [
-        "src/main.ts"
+        "main.ts"
     ]
 }

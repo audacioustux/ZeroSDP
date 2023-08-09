@@ -6,13 +6,14 @@
   "scripts": {
     "build": "tsc --build",
     "cdk8s:import": "cdk8s import",
-    "cdk8s:synth": "cdk8s synth",
+    "cdk8s:synth": "node build/main.js",
     "helm:load": "./scripts/load-helm.sh helm-repos.yaml"
   },
   "dependencies": {
     "cdk8s": "^2",
     "cdk8s-plus-25": "^2",
-    "constructs": "^10"
+    "constructs": "^10",
+    "zod": "^3"
   },
   "devDependencies": {
     "cdk8s-cli": "^2.*"

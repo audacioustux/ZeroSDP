@@ -12,7 +12,7 @@
     },
     "devDependencies": {
         "@types/node": "^20",
-        "typescript": "next",
-        "turbo": "^1"
+        "turbo": "^1",
+        "typescript": "next"
     }
 }
