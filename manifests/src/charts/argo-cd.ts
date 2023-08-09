@@ -44,6 +44,9 @@ export class ArgoCD extends Chart {
         const helm = new Helm(this, 'helm', {
             releaseName: "argocd",
             chart: "argo/argo-cd",
+            helmFlags: [
+                "--namespace", namespace.name
+            ],
             values: props.ha ? ha_values : {},
         });
 

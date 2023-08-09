@@ -9,29 +9,26 @@ export class ArgoWorkflow extends Chart {
 
         const app = new Application(this, 'app', {
             metadata: {
-                name: "argo-workflows",
+                name: "cilium",
                 namespace: "argocd",
                 finalizers: ["resources-finalizer.argocd.argoproj.io"]
             },
             spec: {
                 destination: {
-                    namespace: "argo",
+                    namespace: "kube-system",
                     server: "https://kubernetes.default.svc"
                 },
                 project: "default",
                 source: {
-                    chart: "argo-workflows",
-                    repoUrl: "https://argoproj.github.io/argo-helm",
-                    targetRevision: '0.32.1',
+                    chart: "cilium",
+                    repoUrl: "https://helm.cilium.io/",
+                    targetRevision: '1.14.0',
                 },
                 syncPolicy: {
                     automated: {
                         prune: true,
                         selfHeal: true
-                    },
-                    syncOptions: [
-                        "CreateNamespace=true"
-                    ]
+                    }
                 }
             }
         });

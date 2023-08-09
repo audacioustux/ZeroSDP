@@ -24,6 +24,7 @@
         },
         "manifests#cdk8s:synth": {
             "dependsOn": [
+                "build",
                 "manifests#cdk8s:import",
                 "manifests#helm:load"
             ],
