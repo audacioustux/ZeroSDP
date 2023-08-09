@@ -6,6 +6,10 @@ set -eax
 minikube delete -p sdp
 # start minikube
 minikube start --nodes 3 --cpus 2 --memory 4g --driver=docker --cni=false -p sdp
+# install ciliium
+cilium install
+# enable hubble
+cilium hubble enable
 
 # if no backend url is specified - check for access token and use cloud backend
 if [[ -z "$PULUMI_BACKEND_URL" ]]; then
