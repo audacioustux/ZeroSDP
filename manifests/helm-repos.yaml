@@ -1,3 +1,0 @@
-repos:
-  - name: argo
-    url: https://argoproj.github.io/argo-helm

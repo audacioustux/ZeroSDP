@@ -29,7 +29,7 @@
                 "manifests#helm:load"
             ],
             "outputs": [
-                "dist/**"
+                "rendered/**"
             ]
         },
         "bootstrap#pulumi:stack:select": {

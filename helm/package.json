@@ -1,12 +1,13 @@
 {
-  "name": "manifests",
+  "name": "helm-charts",
   "main": "build/main.js",
   "type": "module",
   "private": true,
   "scripts": {
     "build": "tsc",
     "cdk8s:import": "cdk8s import",
-    "cdk8s:synth": "cdk8s synth"
+    "cdk8s:synth": "cdk8s synth",
+    "helm:load": "./scripts/load-helm.sh helm-repos.yaml"
   },
   "dependencies": {
     "cdk8s": "^2",

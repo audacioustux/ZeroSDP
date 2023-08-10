@@ -1,14 +1,14 @@
 import { Construct } from 'constructs';
-import { Chart, ChartProps, Helm } from 'cdk8s';
 import { ApplicationChart } from './_application-chart.js';
+import { ApplicationProps } from '../../imports/argocd-argoproj.io.js';
 
-export class ArgoWorkflow extends Chart {
-    constructor(scope: Construct, id: string, props: ChartProps = {}) {
-        super(scope, id, props);
-
-        const app = new ApplicationChart(this, 'app', {
+export class ArgoWorkflows extends ApplicationChart {
+    constructor(scope: Construct, id: string, props = {}) {
+        const appProps: ApplicationProps = {
             metadata: {
                 name: "argo-workflows",
+                namespace: "argocd",
+                finalizers: ["resources-finalizer.argocd.argoproj.io"]
             },
             spec: {
                 project: "default",
@@ -18,12 +18,20 @@ export class ArgoWorkflow extends Chart {
                 },
                 source: {
                     repoUrl: "https://github.com/audacioustux/sdp.git",
-                    path: "manifests/helm",
+                    path: "manifests/dist",
                     directory: {
                         include: "argo-workflows.k8s.yaml"
                     }
+                },
+                syncPolicy: {
+                    automated: {
+                        prune: true,
+                        selfHeal: true,
+                    }
                 }
             }
-        }, props);
+        };
+
+        super(scope, id, appProps, props);
     };
 }

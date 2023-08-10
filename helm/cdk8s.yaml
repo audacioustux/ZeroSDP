@@ -1,0 +1,3 @@
+language: typescript
+output: rendered
+app: node build/main.js
