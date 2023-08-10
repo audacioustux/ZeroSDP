@@ -1,15 +1,14 @@
 import { ApiObjectMetadata, App, AppProps, Chart, ChartProps, Helm, HelmProps } from 'cdk8s';
-import * as helm from './charts/helm/index.js';
-import * as application from './charts/application/index.js';
 import { KubeNamespace, KubeNamespaceProps } from './imports/k8s.js';
 import { Application, ApplicationProps } from './imports/argocd-argoproj.io.js';
 import { Construct } from 'constructs';
-import { MergeDeep, SetRequired } from 'type-fest';
+import { SetRequired } from 'type-fest';
+
+type NameRequired = { metadata: SetRequired<ApiObjectMetadata, 'name'> };
 
 export class HelmChart extends Chart {
     constructor(scope: Construct, helmProps: SetRequired<HelmProps, | 'releaseName'>, props: ChartProps = {}) {
-        const { repo, releaseName } = helmProps;
-
+        const { releaseName } = helmProps;
         super(scope, `helm-${releaseName}`, { ...props, disableResourceNameHashes: true });
 
         new Helm(this, 'helm', helmProps);
@@ -17,9 +16,8 @@ export class HelmChart extends Chart {
 }
 
 export class ArgoApplication extends Chart {
-    constructor(scope: Construct, appProps: ApplicationProps & { metadata: SetRequired<ApiObjectMetadata, 'name'> }, props: ChartProps = {}) {
+    constructor(scope: Construct, appProps: ApplicationProps & NameRequired, props: ChartProps = {}) {
         const { metadata: { name } } = appProps;
-
         super(scope, `app-${name}`, props);
 
         new Application(this, 'app', appProps);
@@ -27,7 +25,7 @@ export class ArgoApplication extends Chart {
 }
 
 export class Namespace extends Chart {
-    constructor(scope: Construct, namespaceProps: KubeNamespaceProps & { metadata: SetRequired<ApiObjectMetadata, 'name'> }, props: ChartProps = {}) {
+    constructor(scope: Construct, namespaceProps: KubeNamespaceProps & NameRequired, props: ChartProps = {}) {
         const { metadata: { name } } = namespaceProps;
         super(scope, `namespace-${name}`, props);
 
