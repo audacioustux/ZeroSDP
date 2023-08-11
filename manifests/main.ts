@@ -9,7 +9,12 @@ export class HelmChart extends Chart {
         const { releaseName } = helmProps;
         super(scope, `helm-${releaseName}`, { ...props, disableResourceNameHashes: true });
 
-        new Helm(this, 'helm', helmProps);
+        const defaults = {
+            helmFlags: [
+                "--skip-tests",
+            ]
+        }
+        new Helm(this, 'helm', Object.assign({}, defaults, helmProps));
     }
 }
 
@@ -43,32 +48,29 @@ export class SDP extends App {
             chart: 'argo-cd',
             releaseName: 'argocd',
             namespace: 'argocd',
-            // values: {
-            //     "redis-ha": {
-            //         enabled: true
-            //     },
-            //     controller: {
-            //         replicas: 1
-            //     },
-            //     server: {
-            //         autoscaling: {
-            //             enabled: true,
-            //             minReplicas: 2
-            //         },
-            //     },
-            //     repoServer: {
-            //         autoscaling: {
-            //             enabled: true,
-            //             minReplicas: 2
-            //         },
-            //     },
-            //     applicationSet: {
-            //         replicaCount: 2
-            //     }
-            // },
-            helmFlags: [
-                "--skip-tests",
-            ]
+            values: {
+                "redis-ha": {
+                    enabled: true
+                },
+                controller: {
+                    replicas: 1
+                },
+                server: {
+                    autoscaling: {
+                        enabled: true,
+                        minReplicas: 2
+                    },
+                },
+                repoServer: {
+                    autoscaling: {
+                        enabled: true,
+                        minReplicas: 2
+                    },
+                },
+                applicationSet: {
+                    replicaCount: 2
+                }
+            },
         });
         const app = new ArgoApplication(this, {
             metadata: {
