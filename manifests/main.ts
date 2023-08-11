@@ -66,6 +66,9 @@ export class SDP extends App {
                     replicaCount: 2
                 }
             },
+            helmFlags: [
+                "--skip-tests",
+            ]
         });
         const app = new ArgoApplication(this, {
             metadata: {
