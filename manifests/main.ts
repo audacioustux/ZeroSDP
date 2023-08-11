@@ -49,27 +49,27 @@ export class SDP extends App {
             releaseName: 'argocd',
             namespace: 'argocd',
             values: {
-                "redis-ha": {
-                    enabled: true
-                },
-                controller: {
-                    replicas: 1
-                },
-                server: {
-                    autoscaling: {
-                        enabled: true,
-                        minReplicas: 2
-                    },
-                },
-                repoServer: {
-                    autoscaling: {
-                        enabled: true,
-                        minReplicas: 2
-                    },
-                },
-                applicationSet: {
-                    replicaCount: 2
-                }
+                // "redis-ha": {
+                //     enabled: true
+                // },
+                // controller: {
+                //     replicas: 1
+                // },
+                // server: {
+                //     autoscaling: {
+                //         enabled: true,
+                //         minReplicas: 2
+                //     },
+                // },
+                // repoServer: {
+                //     autoscaling: {
+                //         enabled: true,
+                //         minReplicas: 2
+                //     },
+                // },
+                // applicationSet: {
+                //     replicaCount: 2
+                // }
             },
         });
         const app = new ArgoApplication(this, {
@@ -103,4 +103,3 @@ export class SDP extends App {
 const app = new SDP();
 app.synth();
 
-console.log("hello")
