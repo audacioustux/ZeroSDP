@@ -79,10 +79,7 @@ export class SDP extends App {
                 },
                 source: {
                     repoUrl: "https://github.com/audacioustux/sdp.git",
-                    path: "manifests/dist",
-                    directory: {
-                        include: "argo-cd.k8s.yaml"
-                    }
+                    path: "manifests/dist"
                 },
                 syncPolicy: {
                     automated: {
@@ -100,3 +97,5 @@ export class SDP extends App {
 
 const app = new SDP();
 app.synth();
+
+console.log("hello")

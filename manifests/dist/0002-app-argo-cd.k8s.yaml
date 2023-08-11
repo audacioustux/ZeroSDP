@@ -8,8 +8,6 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    directory:
-      include: argo-cd.k8s.yaml
     path: manifests/dist
     repoURL: https://github.com/audacioustux/sdp.git
   syncPolicy:

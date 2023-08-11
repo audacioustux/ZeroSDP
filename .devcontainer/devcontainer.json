@@ -13,9 +13,9 @@
         "resmon.show.cpufreq": false
       },
       "extensions": [
-		"GitHub.copilot",
-		"Orta.vscode-twoslash-queries"
-	]
+        "GitHub.copilot",
+        "Orta.vscode-twoslash-queries"
+      ]
     }
   },
   "features": {
