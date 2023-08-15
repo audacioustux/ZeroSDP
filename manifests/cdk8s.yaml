@@ -1,9 +1,8 @@
+output: dist
 pluginsDirectory: /home/vscode/.cdk8s/plugins
 language: typescript
-output: dist
 app: node build/main.js
 imports:
-  # https://github.com/cdk8s-team/cdk8s/issues/885
   - k8s
   - argocd:=github:argoproj/argo-cd
   - argo-workflows:=github:argoproj/argo-workflows
