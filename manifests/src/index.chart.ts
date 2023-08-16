@@ -75,6 +75,7 @@ export class SDP extends Chart {
                     source: {
                         repoUrl: "https://argoproj.github.io/argo-helm",
                         chart: "argo-workflows",
+                        targetRevision: "0.32.3"
                     },
                     syncPolicy: {
                         automated: {
