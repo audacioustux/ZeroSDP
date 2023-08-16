@@ -80,7 +80,10 @@ export class SDP extends Chart {
                         automated: {
                             prune: true,
                             selfHeal: true,
-                        }
+                        },
+                        syncOptions: [
+                            "createNamespace=true"
+                        ]
                     }
                 }
             })
