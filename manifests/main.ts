@@ -1,5 +1,5 @@
 import { App, AppProps } from 'cdk8s';
-import { SDP } from "./src/index.chart.js"
+import { SDP } from "./src/sdp.chart.js"
 
 const app = new App();
 

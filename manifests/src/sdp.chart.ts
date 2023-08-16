@@ -60,34 +60,5 @@ export class SDP extends Chart {
                 }
             })
         }
-
-        {
-            // argo-workflows
-            const name = appName("argo-workflows")
-            new Application(this, name, {
-                metadata: { name, namespace: argoCD.namespace },
-                spec: {
-                    project: project.name,
-                    destination: {
-                        namespace: "argo",
-                        server: "https://kubernetes.default.svc",
-                    },
-                    source: {
-                        repoUrl: "https://argoproj.github.io/argo-helm",
-                        chart: "argo-workflows",
-                        targetRevision: "0.32.3"
-                    },
-                    syncPolicy: {
-                        automated: {
-                            prune: true,
-                            selfHeal: true,
-                        },
-                        syncOptions: [
-                            "createNamespace=true"
-                        ]
-                    }
-                }
-            })
-        }
     }
 }
