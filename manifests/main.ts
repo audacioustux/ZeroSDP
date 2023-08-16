@@ -1,13 +1,8 @@
-import { App } from 'cdk8s';
-import { ArgoCD, DEFAULT_HA_VALUES } from "./charts/argo-cd.js"
-import { SDP } from "./charts/projects/sdp.js"
+import { App, AppProps } from 'cdk8s';
+import { SDP } from "./src/index.chart.js"
 
 const app = new App();
 
-const argocd = new ArgoCD(app);
-const sdp = new SDP(app);
-
-sdp.addDependency(argocd);
+new SDP(app)
 
 app.synth();
-
