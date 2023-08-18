@@ -32,24 +32,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
----
-apiVersion: argoproj.io/v1alpha1
-kind: Application
-metadata:
-  name: platform-argo-workflows
-  namespace: argocd
-spec:
-  destination:
-    namespace: argo
-    server: https://kubernetes.default.svc
-  project: platform
-  source:
-    chart: argo-workflows
-    repoURL: https://argoproj.github.io/argo-helm
-    targetRevision: 0.32.3
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
-    syncOptions:
-      - createNamespace=true
