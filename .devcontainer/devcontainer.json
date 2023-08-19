@@ -39,7 +39,8 @@
     "ghcr.io/audacioustux/devcontainers/pulumi:1": {},
     "ghcr.io/audacioustux/devcontainers/k9s:1": {},
     "ghcr.io/audacioustux/devcontainers/cilium:1": {},
-    "ghcr.io/audacioustux/devcontainers/taskfile:1": {}
+    "ghcr.io/audacioustux/devcontainers/taskfile:1": {},
+    "ghcr.io/audacioustux/devcontainers/kustomize:1": {}
   },
   "updateContentCommand": ".devcontainer/scripts/update.sh",
   "postCreateCommand": ".devcontainer/scripts/post-create.sh",
