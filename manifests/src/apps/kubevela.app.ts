@@ -11,7 +11,7 @@ export class Kubevela {
             spec: {
                 project: project.name,
                 destination: {
-                    namespace: "kubevela",
+                    namespace: "vela-system",
                     server: "https://kubernetes.default.svc",
                 },
                 source: {
@@ -25,7 +25,7 @@ export class Kubevela {
                         selfHeal: true,
                     },
                     syncOptions: [
-                        "--create-namespace"
+                        "CreateNamespace=true"
                     ]
                 }
             }
