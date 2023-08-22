@@ -19834,3 +19834,56 @@ spec:
                 path: ca.crt
             optional: true
             secretName: argocd-repo-server-tls
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platfrom
+  namespace: argocd
+spec:
+  clusterResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  destinations:
+    - namespace: "*"
+      server: https://kubernetes.default.svc
+  namespaceResourceWhitelist:
+    - group: "*"
+      kind: "*"
+  sourceRepos:
+    - "*"
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platfrom-root
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: platfrom
+  source:
+    path: manifests/dist
+    repoURL: https://github.com/audacioustux/sdp.git
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: platfrom-kubevela
+  namespace: argocd
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+  project: platfrom
+  source:
+    chart: vela-core
+    repoURL: https://kubevela.github.io/charts
+    targetRevision: 1.9.*
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true

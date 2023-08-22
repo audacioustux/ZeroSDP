@@ -1,8 +1,4 @@
 import { App } from 'cdk8s';
-import { SDP } from "./src/sdp.chart.js"
+import { SDP } from "./src/sdp.js"
 
-const app = new App();
-
-new SDP(app)
-
-app.synth();
+new SDP().synth();

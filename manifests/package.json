@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "cdk8s:import": "cdk8s import",
-    "kustomize:update": "kustomize edit add resource dist/*.yaml",
+    "kustomize:update": "kustomize edit remove resource 'dist/*' && kustomize edit add resource 'dist/*.yaml'",
     "cdk8s:synth": "cdk8s synth && npm run kustomize:update"
   },
   "dependencies": {
