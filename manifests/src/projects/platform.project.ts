@@ -36,6 +36,6 @@ export class Platform implements Project {
         })
 
         new Root(scope, this)
-        // new Kubevela(scope, this)
+        new Kubevela(scope, this)
     }
 }

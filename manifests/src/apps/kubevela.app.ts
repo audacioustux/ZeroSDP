@@ -7,7 +7,7 @@ export class Kubevela {
 
     constructor(scope: ArgoCD, project: Project) {
         new Application(scope, this.name, {
-            metadata: { name: `${project.name}-${this.name}`, namespace: scope.namespace },
+            metadata: { name: `${project.name}-${this.name}`, namespace: scope.namespace, finalizers: ["resources-finalizer.argocd.argoproj.io"] },
             spec: {
                 project: project.name,
                 destination: {
