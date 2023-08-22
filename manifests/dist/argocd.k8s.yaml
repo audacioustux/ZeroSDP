@@ -19877,6 +19877,7 @@ metadata:
   namespace: argocd
 spec:
   destination:
+    namespace: kubevela
     server: https://kubernetes.default.svc
   project: platfrom
   source:
@@ -19887,3 +19888,5 @@ spec:
     automated:
       prune: true
       selfHeal: true
+    syncOptions:
+      - --create-namespace

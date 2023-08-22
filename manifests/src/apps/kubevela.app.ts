@@ -11,19 +11,22 @@ export class Kubevela {
             spec: {
                 project: project.name,
                 destination: {
+                    namespace: "kubevela",
                     server: "https://kubernetes.default.svc",
                 },
                 source: {
                     repoUrl: "https://kubevela.github.io/charts",
                     chart: "vela-core",
                     targetRevision: "1.9.*"
-
                 },
                 syncPolicy: {
                     automated: {
                         prune: true,
                         selfHeal: true,
-                    }
+                    },
+                    syncOptions: [
+                        "--create-namespace"
+                    ]
                 }
             }
         })
