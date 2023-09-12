@@ -1,8 +1,9 @@
 import { Project } from "src/projects/project.js";
 import { Application } from "../../imports/argocd-argoproj.io.js";
 import { ArgoCD } from "../charts/argo-cd.chart.js";
+import { App } from "./app.js";
 
-export class Root {
+export class Root implements App {
     name = "root"
 
     constructor(scope: ArgoCD, project: Project) {

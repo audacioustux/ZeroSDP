@@ -69,7 +69,7 @@ export interface CronTabProps {
   /**
    * @schema CronTab#spec
    */
-  readonly spec?: any;
+  readonly spec?: CronTabSpec;
 
 }
 
@@ -81,7 +81,44 @@ export function toJson_CronTabProps(obj: CronTabProps | undefined): Record<strin
   if (obj === undefined) { return undefined; }
   const result = {
     'metadata': obj.metadata,
-    'spec': obj.spec,
+    'spec': toJson_CronTabSpec(obj.spec),
+  };
+  // filter undefined values
+  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
+}
+/* eslint-enable max-len, quote-props */
+
+/**
+ * @schema CronTabSpec
+ */
+export interface CronTabSpec {
+  /**
+   * @schema CronTabSpec#cronSpec
+   */
+  readonly cronSpec?: string;
+
+  /**
+   * @schema CronTabSpec#image
+   */
+  readonly image?: string;
+
+  /**
+   * @schema CronTabSpec#replicas
+   */
+  readonly replicas?: number;
+
+}
+
+/**
+ * Converts an object of type 'CronTabSpec' to JSON representation.
+ */
+/* eslint-disable max-len, quote-props */
+export function toJson_CronTabSpec(obj: CronTabSpec | undefined): Record<string, any> | undefined {
+  if (obj === undefined) { return undefined; }
+  const result = {
+    'cronSpec': obj.cronSpec,
+    'image': obj.image,
+    'replicas': obj.replicas,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});

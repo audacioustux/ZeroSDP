@@ -10,7 +10,7 @@ export interface ArgoCDProps extends ChartProps {
 export class ArgoCD extends Chart {
     constructor(scope: Construct, id: string = "argocd", chartProps: ArgoCDProps = { namespace: "argocd", ha: false }) {
         const { namespace, ha } = chartProps;
-        super(scope, id, chartProps);
+        super(scope, id, { ...chartProps, disableResourceNameHashes: true });
 
         let values = ha ? {
             "redis-ha": {

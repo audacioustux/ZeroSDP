@@ -5,7 +5,7 @@ set -eax
 # clean up any untracked files
 minikube delete -p sdp
 # start minikube
-minikube start --nodes 3 --cpus 2 --memory 4g --driver=docker --cni=false -p sdp
+minikube start --cpus 8 --memory 8g --driver=docker --cni=false -p sdp
 # install ciliium
 cilium install
 # enable hubble
@@ -32,6 +32,4 @@ if [[ -n "$PULUMI_DEFAULT_ORG" ]]; then
 fi
 
 export PULUMI_STACK_NAME=dev
-
-# bootstrap sdp
 npm run bootstrap

@@ -1247,18 +1247,11 @@ export interface ApplicationSpecSourceHelm {
   readonly valueFiles?: string[];
 
   /**
-   * Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.
+   * Values specifies Helm values to be passed to helm template, typically defined as a block
    *
    * @schema ApplicationSpecSourceHelm#values
    */
   readonly values?: string;
-
-  /**
-   * ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.
-   *
-   * @schema ApplicationSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
 
   /**
    * Version is the Helm version to use for templating ("3")
@@ -1284,7 +1277,6 @@ export function toJson_ApplicationSpecSourceHelm(obj: ApplicationSpecSourceHelm 
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -1551,18 +1543,11 @@ export interface ApplicationSpecSourcesHelm {
   readonly valueFiles?: string[];
 
   /**
-   * Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.
+   * Values specifies Helm values to be passed to helm template, typically defined as a block
    *
    * @schema ApplicationSpecSourcesHelm#values
    */
   readonly values?: string;
-
-  /**
-   * ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.
-   *
-   * @schema ApplicationSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
 
   /**
    * Version is the Helm version to use for templating ("3")
@@ -1588,7 +1573,6 @@ export function toJson_ApplicationSpecSourcesHelm(obj: ApplicationSpecSourcesHel
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -1767,7 +1751,7 @@ export interface ApplicationSpecSyncPolicyAutomated {
   readonly prune?: boolean;
 
   /**
-   * SelfHeal specifies whether to revert resources back to their desired state upon modification in the cluster (default: false)
+   * SelfHeal specifes whether to revert resources back to their desired state upon modification in the cluster (default: false)
    *
    * @schema ApplicationSpecSyncPolicyAutomated#selfHeal
    */
@@ -1970,18 +1954,11 @@ export interface ApplicationOperationSyncSourceHelm {
   readonly valueFiles?: string[];
 
   /**
-   * Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.
+   * Values specifies Helm values to be passed to helm template, typically defined as a block
    *
    * @schema ApplicationOperationSyncSourceHelm#values
    */
   readonly values?: string;
-
-  /**
-   * ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.
-   *
-   * @schema ApplicationOperationSyncSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
 
   /**
    * Version is the Helm version to use for templating ("3")
@@ -2007,7 +1984,6 @@ export function toJson_ApplicationOperationSyncSourceHelm(obj: ApplicationOperat
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -2274,18 +2250,11 @@ export interface ApplicationOperationSyncSourcesHelm {
   readonly valueFiles?: string[];
 
   /**
-   * Values specifies Helm values to be passed to helm template, typically defined as a block. ValuesObject takes precedence over Values, so use one or the other.
+   * Values specifies Helm values to be passed to helm template, typically defined as a block
    *
    * @schema ApplicationOperationSyncSourcesHelm#values
    */
   readonly values?: string;
-
-  /**
-   * ValuesObject specifies Helm values to be passed to helm template, defined as a map. This takes precedence over Values.
-   *
-   * @schema ApplicationOperationSyncSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
 
   /**
    * Version is the Helm version to use for templating ("3")
@@ -2311,7 +2280,6 @@ export function toJson_ApplicationOperationSyncSourcesHelm(obj: ApplicationOpera
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -4039,11 +4007,6 @@ export function toJson_ApplicationSetProps(obj: ApplicationSetProps | undefined)
  */
 export interface ApplicationSetSpec {
   /**
-   * @schema ApplicationSetSpec#applyNestedSelectors
-   */
-  readonly applyNestedSelectors?: boolean;
-
-  /**
    * @schema ApplicationSetSpec#generators
    */
   readonly generators: ApplicationSetSpecGenerators[];
@@ -4052,11 +4015,6 @@ export interface ApplicationSetSpec {
    * @schema ApplicationSetSpec#goTemplate
    */
   readonly goTemplate?: boolean;
-
-  /**
-   * @schema ApplicationSetSpec#goTemplateOptions
-   */
-  readonly goTemplateOptions?: string[];
 
   /**
    * @schema ApplicationSetSpec#preservedFields
@@ -4087,10 +4045,8 @@ export interface ApplicationSetSpec {
 export function toJson_ApplicationSetSpec(obj: ApplicationSetSpec | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'applyNestedSelectors': obj.applyNestedSelectors,
     'generators': obj.generators?.map(y => toJson_ApplicationSetSpecGenerators(y)),
     'goTemplate': obj.goTemplate,
-    'goTemplateOptions': obj.goTemplateOptions?.map(y => y),
     'preservedFields': toJson_ApplicationSetSpecPreservedFields(obj.preservedFields),
     'strategy': toJson_ApplicationSetSpecStrategy(obj.strategy),
     'syncPolicy': toJson_ApplicationSetSpecSyncPolicy(obj.syncPolicy),
@@ -4136,11 +4092,6 @@ export interface ApplicationSetSpecGenerators {
   readonly merge?: ApplicationSetSpecGeneratorsMerge;
 
   /**
-   * @schema ApplicationSetSpecGenerators#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsPlugin;
-
-  /**
    * @schema ApplicationSetSpecGenerators#pullRequest
    */
   readonly pullRequest?: ApplicationSetSpecGeneratorsPullRequest;
@@ -4170,7 +4121,6 @@ export function toJson_ApplicationSetSpecGenerators(obj: ApplicationSetSpecGener
     'list': toJson_ApplicationSetSpecGeneratorsList(obj.list),
     'matrix': toJson_ApplicationSetSpecGeneratorsMatrix(obj.matrix),
     'merge': toJson_ApplicationSetSpecGeneratorsMerge(obj.merge),
-    'plugin': toJson_ApplicationSetSpecGeneratorsPlugin(obj.plugin),
     'pullRequest': toJson_ApplicationSetSpecGeneratorsPullRequest(obj.pullRequest),
     'scmProvider': toJson_ApplicationSetSpecGeneratorsScmProvider(obj.scmProvider),
     'selector': toJson_ApplicationSetSpecGeneratorsSelector(obj.selector),
@@ -4241,11 +4191,6 @@ export function toJson_ApplicationSetSpecStrategy(obj: ApplicationSetSpecStrateg
  */
 export interface ApplicationSetSpecSyncPolicy {
   /**
-   * @schema ApplicationSetSpecSyncPolicy#applicationsSync
-   */
-  readonly applicationsSync?: ApplicationSetSpecSyncPolicyApplicationsSync;
-
-  /**
    * @schema ApplicationSetSpecSyncPolicy#preserveResourcesOnDeletion
    */
   readonly preserveResourcesOnDeletion?: boolean;
@@ -4259,7 +4204,6 @@ export interface ApplicationSetSpecSyncPolicy {
 export function toJson_ApplicationSetSpecSyncPolicy(obj: ApplicationSetSpecSyncPolicy | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'applicationsSync': obj.applicationsSync,
     'preserveResourcesOnDeletion': obj.preserveResourcesOnDeletion,
   };
   // filter undefined values
@@ -4429,11 +4373,6 @@ export interface ApplicationSetSpecGeneratorsGit {
    */
   readonly template?: ApplicationSetSpecGeneratorsGitTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsGit#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -4450,7 +4389,6 @@ export function toJson_ApplicationSetSpecGeneratorsGit(obj: ApplicationSetSpecGe
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'revision': obj.revision,
     'template': toJson_ApplicationSetSpecGeneratorsGitTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -4563,68 +4501,9 @@ export function toJson_ApplicationSetSpecGeneratorsMerge(obj: ApplicationSetSpec
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsPlugin
- */
-export interface ApplicationSetSpecGeneratorsPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPlugin#configMapRef
-   */
-  readonly configMapRef: ApplicationSetSpecGeneratorsPluginConfigMapRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPlugin#input
-   */
-  readonly input?: ApplicationSetSpecGeneratorsPluginInput;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPlugin#requeueAfterSeconds
-   */
-  readonly requeueAfterSeconds?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPlugin#template
-   */
-  readonly template?: ApplicationSetSpecGeneratorsPluginTemplate;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPlugin#values
-   */
-  readonly values?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPlugin(obj: ApplicationSetSpecGeneratorsPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'configMapRef': toJson_ApplicationSetSpecGeneratorsPluginConfigMapRef(obj.configMapRef),
-    'input': toJson_ApplicationSetSpecGeneratorsPluginInput(obj.input),
-    'requeueAfterSeconds': obj.requeueAfterSeconds,
-    'template': toJson_ApplicationSetSpecGeneratorsPluginTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsPullRequest
  */
 export interface ApplicationSetSpecGeneratorsPullRequest {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequest#azuredevops
-   */
-  readonly azuredevops?: ApplicationSetSpecGeneratorsPullRequestAzuredevops;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequest#bitbucket
-   */
-  readonly bitbucket?: ApplicationSetSpecGeneratorsPullRequestBitbucket;
-
   /**
    * @schema ApplicationSetSpecGeneratorsPullRequest#bitbucketServer
    */
@@ -4669,8 +4548,6 @@ export interface ApplicationSetSpecGeneratorsPullRequest {
 export function toJson_ApplicationSetSpecGeneratorsPullRequest(obj: ApplicationSetSpecGeneratorsPullRequest | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'azuredevops': toJson_ApplicationSetSpecGeneratorsPullRequestAzuredevops(obj.azuredevops),
-    'bitbucket': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketServer(obj.bitbucketServer),
     'filters': obj.filters?.map(y => toJson_ApplicationSetSpecGeneratorsPullRequestFilters(y)),
     'gitea': toJson_ApplicationSetSpecGeneratorsPullRequestGitea(obj.gitea),
@@ -4688,11 +4565,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequest(obj: ApplicationS
  * @schema ApplicationSetSpecGeneratorsScmProvider
  */
 export interface ApplicationSetSpecGeneratorsScmProvider {
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProvider#awsCodeCommit
-   */
-  readonly awsCodeCommit?: ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit;
-
   /**
    * @schema ApplicationSetSpecGeneratorsScmProvider#azureDevOps
    */
@@ -4743,11 +4615,6 @@ export interface ApplicationSetSpecGeneratorsScmProvider {
    */
   readonly template?: ApplicationSetSpecGeneratorsScmProviderTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProvider#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -4757,7 +4624,6 @@ export interface ApplicationSetSpecGeneratorsScmProvider {
 export function toJson_ApplicationSetSpecGeneratorsScmProvider(obj: ApplicationSetSpecGeneratorsScmProvider | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'awsCodeCommit': toJson_ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit(obj.awsCodeCommit),
     'azureDevOps': toJson_ApplicationSetSpecGeneratorsScmProviderAzureDevOps(obj.azureDevOps),
     'bitbucket': toJson_ApplicationSetSpecGeneratorsScmProviderBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsScmProviderBitbucketServer(obj.bitbucketServer),
@@ -4768,7 +4634,6 @@ export function toJson_ApplicationSetSpecGeneratorsScmProvider(obj: ApplicationS
     'gitlab': toJson_ApplicationSetSpecGeneratorsScmProviderGitlab(obj.gitlab),
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'template': toJson_ApplicationSetSpecGeneratorsScmProviderTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -4830,20 +4695,6 @@ export function toJson_ApplicationSetSpecStrategyRollingSync(obj: ApplicationSet
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
 }
 /* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecSyncPolicyApplicationsSync
- */
-export enum ApplicationSetSpecSyncPolicyApplicationsSync {
-  /** create-only */
-  CREATE_ONLY = "create-only",
-  /** create-update */
-  CREATE_UPDATE = "create-update",
-  /** create-delete */
-  CREATE_DELETE = "create-delete",
-  /** sync */
-  SYNC = "sync",
-}
 
 /**
  * @schema ApplicationSetSpecTemplateMetadata
@@ -5238,11 +5089,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGenerators {
   readonly merge?: any;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGenerators#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGenerators#pullRequest
    */
   readonly pullRequest?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest;
@@ -5272,7 +5118,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGenerators(obj: Applica
     'list': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsList(obj.list),
     'matrix': obj.matrix,
     'merge': obj.merge,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin(obj.plugin),
     'pullRequest': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest(obj.pullRequest),
     'scmProvider': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider(obj.scmProvider),
     'selector': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsSelector(obj.selector),
@@ -5348,11 +5193,6 @@ export interface ApplicationSetSpecGeneratorsMergeGenerators {
   readonly merge?: any;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGenerators#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMergeGeneratorsPlugin;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGenerators#pullRequest
    */
   readonly pullRequest?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest;
@@ -5382,7 +5222,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGenerators(obj: Applicat
     'list': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsList(obj.list),
     'matrix': obj.matrix,
     'merge': obj.merge,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPlugin(obj.plugin),
     'pullRequest': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest(obj.pullRequest),
     'scmProvider': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider(obj.scmProvider),
     'selector': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsSelector(obj.selector),
@@ -5417,191 +5256,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplate(obj: Applicatio
   const result = {
     'metadata': toJson_ApplicationSetSpecGeneratorsMergeTemplateMetadata(obj.metadata),
     'spec': toJson_ApplicationSetSpecGeneratorsMergeTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginConfigMapRef
- */
-export interface ApplicationSetSpecGeneratorsPluginConfigMapRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginConfigMapRef#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginConfigMapRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginConfigMapRef(obj: ApplicationSetSpecGeneratorsPluginConfigMapRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginInput
- */
-export interface ApplicationSetSpecGeneratorsPluginInput {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginInput#parameters
-   */
-  readonly parameters?: { [key: string]: any };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginInput' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginInput(obj: ApplicationSetSpecGeneratorsPluginInput | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplate
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplate {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplate#metadata
-   */
-  readonly metadata: ApplicationSetSpecGeneratorsPluginTemplateMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplate#spec
-   */
-  readonly spec: ApplicationSetSpecGeneratorsPluginTemplateSpec;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplate' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplate(obj: ApplicationSetSpecGeneratorsPluginTemplate | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ApplicationSetSpecGeneratorsPluginTemplateMetadata(obj.metadata),
-    'spec': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops
- */
-export interface ApplicationSetSpecGeneratorsPullRequestAzuredevops {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#labels
-   */
-  readonly labels?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#organization
-   */
-  readonly organization: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#repo
-   */
-  readonly repo: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevops#tokenRef
-   */
-  readonly tokenRef?: ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestAzuredevops' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestAzuredevops(obj: ApplicationSetSpecGeneratorsPullRequestAzuredevops | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'labels': obj.labels?.map(y => y),
-    'organization': obj.organization,
-    'project': obj.project,
-    'repo': obj.repo,
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef(obj.tokenRef),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket
- */
-export interface ApplicationSetSpecGeneratorsPullRequestBitbucket {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket#basicAuth
-   */
-  readonly basicAuth?: ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket#bearerToken
-   */
-  readonly bearerToken?: ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket#owner
-   */
-  readonly owner: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucket#repo
-   */
-  readonly repo: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestBitbucket' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestBitbucket(obj: ApplicationSetSpecGeneratorsPullRequestBitbucket | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'basicAuth': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth(obj.basicAuth),
-    'bearerToken': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken(obj.bearerToken),
-    'owner': obj.owner,
-    'repo': obj.repo,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -5660,11 +5314,6 @@ export interface ApplicationSetSpecGeneratorsPullRequestFilters {
    */
   readonly branchMatch?: string;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestFilters#targetBranchMatch
-   */
-  readonly targetBranchMatch?: string;
-
 }
 
 /**
@@ -5675,7 +5324,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestFilters(obj: Appli
   if (obj === undefined) { return undefined; }
   const result = {
     'branchMatch': obj.branchMatch,
-    'targetBranchMatch': obj.targetBranchMatch,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -5796,11 +5444,6 @@ export interface ApplicationSetSpecGeneratorsPullRequestGitlab {
   readonly api?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsPullRequestGitlab#labels
    */
   readonly labels?: string[];
@@ -5830,7 +5473,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestGitlab(obj: Applic
   if (obj === undefined) { return undefined; }
   const result = {
     'api': obj.api,
-    'insecure': obj.insecure,
     'labels': obj.labels?.map(y => y),
     'project': obj.project,
     'pullRequestState': obj.pullRequestState,
@@ -5866,49 +5508,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestTemplate(obj: Appl
   const result = {
     'metadata': toJson_ApplicationSetSpecGeneratorsPullRequestTemplateMetadata(obj.metadata),
     'spec': toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit
- */
-export interface ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit {
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit#allBranches
-   */
-  readonly allBranches?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit#region
-   */
-  readonly region?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit#role
-   */
-  readonly role?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit#tagFilters
-   */
-  readonly tagFilters?: ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit(obj: ApplicationSetSpecGeneratorsScmProviderAwsCodeCommit | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allBranches': obj.allBranches,
-    'region': obj.region,
-    'role': obj.role,
-    'tagFilters': obj.tagFilters?.map(y => toJson_ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -6222,11 +5821,6 @@ export interface ApplicationSetSpecGeneratorsScmProviderGitlab {
   readonly includeSubgroups?: boolean;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsScmProviderGitlab#tokenRef
    */
   readonly tokenRef?: ApplicationSetSpecGeneratorsScmProviderGitlabTokenRef;
@@ -6244,7 +5838,6 @@ export function toJson_ApplicationSetSpecGeneratorsScmProviderGitlab(obj: Applic
     'api': obj.api,
     'group': obj.group,
     'includeSubgroups': obj.includeSubgroups,
-    'insecure': obj.insecure,
     'tokenRef': toJson_ApplicationSetSpecGeneratorsScmProviderGitlabTokenRef(obj.tokenRef),
   };
   // filter undefined values
@@ -7338,11 +6931,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsGit {
    */
   readonly template?: ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsGit#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -7359,7 +6947,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsGit(obj: Appl
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'revision': obj.revision,
     'template': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7404,68 +6991,9 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsList(obj: App
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin#configMapRef
-   */
-  readonly configMapRef: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin#input
-   */
-  readonly input?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin#requeueAfterSeconds
-   */
-  readonly requeueAfterSeconds?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin#template
-   */
-  readonly template?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin#values
-   */
-  readonly values?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'configMapRef': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef(obj.configMapRef),
-    'input': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput(obj.input),
-    'requeueAfterSeconds': obj.requeueAfterSeconds,
-    'template': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest#azuredevops
-   */
-  readonly azuredevops?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest#bitbucket
-   */
-  readonly bitbucket?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket;
-
   /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest#bitbucketServer
    */
@@ -7510,8 +7038,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest {
 export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'azuredevops': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops(obj.azuredevops),
-    'bitbucket': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServer(obj.bitbucketServer),
     'filters': obj.filters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestFilters(y)),
     'gitea': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestGitea(obj.gitea),
@@ -7529,11 +7055,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequest(o
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider#awsCodeCommit
-   */
-  readonly awsCodeCommit?: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit;
-
   /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider#azureDevOps
    */
@@ -7584,11 +7105,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider {
    */
   readonly template?: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -7598,7 +7114,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider {
 export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'awsCodeCommit': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit(obj.awsCodeCommit),
     'azureDevOps': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAzureDevOps(obj.azureDevOps),
     'bitbucket': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderBitbucketServer(obj.bitbucketServer),
@@ -7609,7 +7124,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProvider(o
     'gitlab': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlab(obj.gitlab),
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'template': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7894,11 +7408,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsGit {
    */
   readonly template?: ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsGit#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -7915,7 +7424,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsGit(obj: Appli
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'revision': obj.revision,
     'template': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -7960,68 +7468,9 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsList(obj: Appl
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin#configMapRef
-   */
-  readonly configMapRef: ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin#input
-   */
-  readonly input?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin#requeueAfterSeconds
-   */
-  readonly requeueAfterSeconds?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin#template
-   */
-  readonly template?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPlugin#values
-   */
-  readonly values?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPlugin(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'configMapRef': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef(obj.configMapRef),
-    'input': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput(obj.input),
-    'requeueAfterSeconds': obj.requeueAfterSeconds,
-    'template': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest#azuredevops
-   */
-  readonly azuredevops?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest#bitbucket
-   */
-  readonly bitbucket?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket;
-
   /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest#bitbucketServer
    */
@@ -8066,8 +7515,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest {
 export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'azuredevops': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops(obj.azuredevops),
-    'bitbucket': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServer(obj.bitbucketServer),
     'filters': obj.filters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestFilters(y)),
     'gitea': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestGitea(obj.gitea),
@@ -8085,11 +7532,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequest(ob
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider#awsCodeCommit
-   */
-  readonly awsCodeCommit?: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit;
-
   /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider#azureDevOps
    */
@@ -8140,11 +7582,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider {
    */
   readonly template?: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplate;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider#values
-   */
-  readonly values?: { [key: string]: string };
-
 }
 
 /**
@@ -8154,7 +7591,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider {
 export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider(obj: ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
-    'awsCodeCommit': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit(obj.awsCodeCommit),
     'azureDevOps': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAzureDevOps(obj.azureDevOps),
     'bitbucket': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderBitbucket(obj.bitbucket),
     'bitbucketServer': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderBitbucketServer(obj.bitbucketServer),
@@ -8165,7 +7601,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProvider(ob
     'gitlab': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlab(obj.gitlab),
     'requeueAfterSeconds': obj.requeueAfterSeconds,
     'template': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplate(obj.template),
-    'values': ((obj.values) === undefined) ? undefined : (Object.entries(obj.values).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8313,209 +7748,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpec(obj: Applic
     'source': toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSource(obj.source),
     'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSources(y)),
     'syncPolicy': toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata#finalizers
-   */
-  readonly finalizers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateMetadata#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateMetadata(obj: ApplicationSetSpecGeneratorsPluginTemplateMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'finalizers': obj.finalizers?.map(y => y),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpec {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#destination
-   */
-  readonly destination: ApplicationSetSpecGeneratorsPluginTemplateSpecDestination;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#ignoreDifferences
-   */
-  readonly ignoreDifferences?: ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#info
-   */
-  readonly info?: ApplicationSetSpecGeneratorsPluginTemplateSpecInfo[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#revisionHistoryLimit
-   */
-  readonly revisionHistoryLimit?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#source
-   */
-  readonly source?: ApplicationSetSpecGeneratorsPluginTemplateSpecSource;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#sources
-   */
-  readonly sources?: ApplicationSetSpecGeneratorsPluginTemplateSpecSources[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpec#syncPolicy
-   */
-  readonly syncPolicy?: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpec' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpec(obj: ApplicationSetSpecGeneratorsPluginTemplateSpec | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'destination': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecDestination(obj.destination),
-    'ignoreDifferences': obj.ignoreDifferences?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences(y)),
-    'info': obj.info?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecInfo(y)),
-    'project': obj.project,
-    'revisionHistoryLimit': obj.revisionHistoryLimit,
-    'source': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSource(obj.source),
-    'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSources(y)),
-    'syncPolicy': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef
- */
-export interface ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef(obj: ApplicationSetSpecGeneratorsPullRequestAzuredevopsTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth
- */
-export interface ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth#passwordRef
-   */
-  readonly passwordRef: ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth#username
-   */
-  readonly username: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth(obj: ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuth | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'passwordRef': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj.passwordRef),
-    'username': obj.username,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken
- */
-export interface ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken#tokenRef
-   */
-  readonly tokenRef: ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken(obj: ApplicationSetSpecGeneratorsPullRequestBitbucketBearerToken | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj.tokenRef),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -8756,37 +7988,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpec(obj: 
     'source': toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpecSource(obj.source),
     'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpecSources(y)),
     'syncPolicy': toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters
- */
-export interface ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters(obj: ApplicationSetSpecGeneratorsScmProviderAwsCodeCommitTagFilters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'value': obj.value,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -9234,11 +8435,6 @@ export interface ApplicationSetSpecTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -9260,7 +8456,6 @@ export function toJson_ApplicationSetSpecTemplateSpecSourceHelm(obj: Application
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -9478,11 +8673,6 @@ export interface ApplicationSetSpecTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -9504,7 +8694,6 @@ export function toJson_ApplicationSetSpecTemplateSpecSourcesHelm(obj: Applicatio
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -11248,191 +10437,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplate(
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginConfigMapRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput#parameters
-   */
-  readonly parameters?: { [key: string]: any };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginInput | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate#metadata
-   */
-  readonly metadata: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate#spec
-   */
-  readonly spec: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplate | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata(obj.metadata),
-    'spec': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#labels
-   */
-  readonly labels?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#organization
-   */
-  readonly organization: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#repo
-   */
-  readonly repo: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops#tokenRef
-   */
-  readonly tokenRef?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevops | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'labels': obj.labels?.map(y => y),
-    'organization': obj.organization,
-    'project': obj.project,
-    'repo': obj.repo,
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef(obj.tokenRef),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket#basicAuth
-   */
-  readonly basicAuth?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket#bearerToken
-   */
-  readonly bearerToken?: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket#owner
-   */
-  readonly owner: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket#repo
-   */
-  readonly repo: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucket | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'basicAuth': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth(obj.basicAuth),
-    'bearerToken': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken(obj.bearerToken),
-    'owner': obj.owner,
-    'repo': obj.repo,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServer
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServer {
@@ -11484,11 +10488,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestFilters 
    */
   readonly branchMatch?: string;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestFilters#targetBranchMatch
-   */
-  readonly targetBranchMatch?: string;
-
 }
 
 /**
@@ -11499,7 +10498,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestFi
   if (obj === undefined) { return undefined; }
   const result = {
     'branchMatch': obj.branchMatch,
-    'targetBranchMatch': obj.targetBranchMatch,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -11620,11 +10618,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestGitlab {
   readonly api?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestGitlab#labels
    */
   readonly labels?: string[];
@@ -11654,7 +10647,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestGi
   if (obj === undefined) { return undefined; }
   const result = {
     'api': obj.api,
-    'insecure': obj.insecure,
     'labels': obj.labels?.map(y => y),
     'project': obj.project,
     'pullRequestState': obj.pullRequestState,
@@ -11690,49 +10682,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTe
   const result = {
     'metadata': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateMetadata(obj.metadata),
     'spec': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit#allBranches
-   */
-  readonly allBranches?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit#region
-   */
-  readonly region?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit#role
-   */
-  readonly role?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit#tagFilters
-   */
-  readonly tagFilters?: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommit | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allBranches': obj.allBranches,
-    'region': obj.region,
-    'role': obj.role,
-    'tagFilters': obj.tagFilters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -12046,11 +10995,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlab {
   readonly includeSubgroups?: boolean;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlab#tokenRef
    */
   readonly tokenRef?: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlabTokenRef;
@@ -12068,7 +11012,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGi
     'api': obj.api,
     'group': obj.group,
     'includeSubgroups': obj.includeSubgroups,
-    'insecure': obj.insecure,
     'tokenRef': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderGitlabTokenRef(obj.tokenRef),
   };
   // filter undefined values
@@ -12705,191 +11648,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplate(o
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginConfigMapRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput#parameters
-   */
-  readonly parameters?: { [key: string]: any };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginInput | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'parameters': ((obj.parameters) === undefined) ? undefined : (Object.entries(obj.parameters).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate#metadata
-   */
-  readonly metadata: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate#spec
-   */
-  readonly spec: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplate | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'metadata': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata(obj.metadata),
-    'spec': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#labels
-   */
-  readonly labels?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#organization
-   */
-  readonly organization: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#repo
-   */
-  readonly repo: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops#tokenRef
-   */
-  readonly tokenRef?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevops | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'labels': obj.labels?.map(y => y),
-    'organization': obj.organization,
-    'project': obj.project,
-    'repo': obj.repo,
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef(obj.tokenRef),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket#api
-   */
-  readonly api?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket#basicAuth
-   */
-  readonly basicAuth?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket#bearerToken
-   */
-  readonly bearerToken?: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket#owner
-   */
-  readonly owner: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket#repo
-   */
-  readonly repo: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucket | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'api': obj.api,
-    'basicAuth': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth(obj.basicAuth),
-    'bearerToken': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken(obj.bearerToken),
-    'owner': obj.owner,
-    'repo': obj.repo,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServer
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServer {
@@ -12941,11 +11699,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestFilters {
    */
   readonly branchMatch?: string;
 
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestFilters#targetBranchMatch
-   */
-  readonly targetBranchMatch?: string;
-
 }
 
 /**
@@ -12956,7 +11709,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestFil
   if (obj === undefined) { return undefined; }
   const result = {
     'branchMatch': obj.branchMatch,
-    'targetBranchMatch': obj.targetBranchMatch,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13077,11 +11829,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestGitlab {
   readonly api?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestGitlab#labels
    */
   readonly labels?: string[];
@@ -13111,7 +11858,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestGit
   if (obj === undefined) { return undefined; }
   const result = {
     'api': obj.api,
-    'insecure': obj.insecure,
     'labels': obj.labels?.map(y => y),
     'project': obj.project,
     'pullRequestState': obj.pullRequestState,
@@ -13147,49 +11893,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTem
   const result = {
     'metadata': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateMetadata(obj.metadata),
     'spec': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpec(obj.spec),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit#allBranches
-   */
-  readonly allBranches?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit#region
-   */
-  readonly region?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit#role
-   */
-  readonly role?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit#tagFilters
-   */
-  readonly tagFilters?: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit(obj: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommit | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allBranches': obj.allBranches,
-    'region': obj.region,
-    'role': obj.role,
-    'tagFilters': obj.tagFilters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters(y)),
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -13503,11 +12206,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlab {
   readonly includeSubgroups?: boolean;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlab#insecure
-   */
-  readonly insecure?: boolean;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlab#tokenRef
    */
   readonly tokenRef?: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlabTokenRef;
@@ -13525,7 +12223,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGit
     'api': obj.api,
     'group': obj.group,
     'includeSubgroups': obj.includeSubgroups,
-    'insecure': obj.insecure,
     'tokenRef': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderGitlabTokenRef(obj.tokenRef),
   };
   // filter undefined values
@@ -13913,386 +12610,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicy(o
     'managedNamespaceMetadata': toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyManagedNamespaceMetadata(obj.managedNamespaceMetadata),
     'retry': toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyRetry(obj.retry),
     'syncOptions': obj.syncOptions?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecDestination
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecDestination {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecDestination#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecDestination#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecDestination#server
-   */
-  readonly server?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecDestination' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecDestination(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecDestination | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'namespace': obj.namespace,
-    'server': obj.server,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#group
-   */
-  readonly group?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#jqPathExpressions
-   */
-  readonly jqPathExpressions?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#jsonPointers
-   */
-  readonly jsonPointers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#kind
-   */
-  readonly kind: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#managedFieldsManagers
-   */
-  readonly managedFieldsManagers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecIgnoreDifferences | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'group': obj.group,
-    'jqPathExpressions': obj.jqPathExpressions?.map(y => y),
-    'jsonPointers': obj.jsonPointers?.map(y => y),
-    'kind': obj.kind,
-    'managedFieldsManagers': obj.managedFieldsManagers?.map(y => y),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecInfo
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecInfo {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecInfo#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecInfo#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecInfo' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecInfo(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecInfo | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSource {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSource#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSource' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSource(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSource | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSources {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSources#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSources' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSources(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSources | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy#automated
-   */
-  readonly automated?: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy#managedNamespaceMetadata
-   */
-  readonly managedNamespaceMetadata?: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy#retry
-   */
-  readonly retry?: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy#syncOptions
-   */
-  readonly syncOptions?: string[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicy | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'automated': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj.automated),
-    'managedNamespaceMetadata': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj.managedNamespaceMetadata),
-    'retry': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry(obj.retry),
-    'syncOptions': obj.syncOptions?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef
- */
-export interface ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj: ApplicationSetSpecGeneratorsPullRequestBitbucketBasicAuthPasswordRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef
- */
-export interface ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj: ApplicationSetSpecGeneratorsPullRequestBitbucketBearerTokenTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -15542,11 +13859,6 @@ export interface ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpec
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -15568,7 +13880,6 @@ export function toJson_ApplicationSetSpecGeneratorsClusterDecisionResourceTempla
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -15786,11 +14097,6 @@ export interface ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpec
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -15812,7 +14118,6 @@ export function toJson_ApplicationSetSpecGeneratorsClusterDecisionResourceTempla
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -16129,11 +14434,6 @@ export interface ApplicationSetSpecGeneratorsClustersTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsClustersTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsClustersTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -16155,7 +14455,6 @@ export function toJson_ApplicationSetSpecGeneratorsClustersTemplateSpecSourceHel
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -16373,11 +14672,6 @@ export interface ApplicationSetSpecGeneratorsClustersTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsClustersTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsClustersTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -16399,7 +14693,6 @@ export function toJson_ApplicationSetSpecGeneratorsClustersTemplateSpecSourcesHe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -16716,11 +15009,6 @@ export interface ApplicationSetSpecGeneratorsGitTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsGitTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsGitTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -16742,7 +15030,6 @@ export function toJson_ApplicationSetSpecGeneratorsGitTemplateSpecSourceHelm(obj
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -16960,11 +15247,6 @@ export interface ApplicationSetSpecGeneratorsGitTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsGitTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsGitTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -16986,7 +15268,6 @@ export function toJson_ApplicationSetSpecGeneratorsGitTemplateSpecSourcesHelm(ob
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -17303,11 +15584,6 @@ export interface ApplicationSetSpecGeneratorsListTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsListTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsListTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -17329,7 +15605,6 @@ export function toJson_ApplicationSetSpecGeneratorsListTemplateSpecSourceHelm(ob
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -17547,11 +15822,6 @@ export interface ApplicationSetSpecGeneratorsListTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsListTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsListTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -17573,7 +15843,6 @@ export function toJson_ApplicationSetSpecGeneratorsListTemplateSpecSourcesHelm(o
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -18341,209 +16610,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateS
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata#finalizers
-   */
-  readonly finalizers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'finalizers': obj.finalizers?.map(y => y),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#destination
-   */
-  readonly destination: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#ignoreDifferences
-   */
-  readonly ignoreDifferences?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#info
-   */
-  readonly info?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#revisionHistoryLimit
-   */
-  readonly revisionHistoryLimit?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#source
-   */
-  readonly source?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#sources
-   */
-  readonly sources?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec#syncPolicy
-   */
-  readonly syncPolicy?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpec | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'destination': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination(obj.destination),
-    'ignoreDifferences': obj.ignoreDifferences?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences(y)),
-    'info': obj.info?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo(y)),
-    'project': obj.project,
-    'revisionHistoryLimit': obj.revisionHistoryLimit,
-    'source': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource(obj.source),
-    'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources(y)),
-    'syncPolicy': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestAzuredevopsTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth#passwordRef
-   */
-  readonly passwordRef: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth#username
-   */
-  readonly username: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuth | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'passwordRef': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj.passwordRef),
-    'username': obj.username,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken#tokenRef
-   */
-  readonly tokenRef: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerToken | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj.tokenRef),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServerBasicAuth
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServerBasicAuth {
@@ -18777,37 +16843,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTe
     'source': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSource(obj.source),
     'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSources(y)),
     'syncPolicy': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderAwsCodeCommitTagFilters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'value': obj.value,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -19204,11 +17239,6 @@ export interface ApplicationSetSpecGeneratorsMatrixTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -19230,7 +17260,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixTemplateSpecSourceHelm(
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -19448,11 +17477,6 @@ export interface ApplicationSetSpecGeneratorsMatrixTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -19474,7 +17498,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixTemplateSpecSourcesHelm
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -20242,209 +18265,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata#finalizers
-   */
-  readonly finalizers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'finalizers': obj.finalizers?.map(y => y),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#destination
-   */
-  readonly destination: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#ignoreDifferences
-   */
-  readonly ignoreDifferences?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#info
-   */
-  readonly info?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#project
-   */
-  readonly project: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#revisionHistoryLimit
-   */
-  readonly revisionHistoryLimit?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#source
-   */
-  readonly source?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#sources
-   */
-  readonly sources?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec#syncPolicy
-   */
-  readonly syncPolicy?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpec | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'destination': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination(obj.destination),
-    'ignoreDifferences': obj.ignoreDifferences?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences(y)),
-    'info': obj.info?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo(y)),
-    'project': obj.project,
-    'revisionHistoryLimit': obj.revisionHistoryLimit,
-    'source': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource(obj.source),
-    'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources(y)),
-    'syncPolicy': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestAzuredevopsTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth#passwordRef
-   */
-  readonly passwordRef: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth#username
-   */
-  readonly username: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuth | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'passwordRef': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj.passwordRef),
-    'username': obj.username,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken#tokenRef
-   */
-  readonly tokenRef: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerToken | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'tokenRef': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj.tokenRef),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServerBasicAuth
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServerBasicAuth {
@@ -20678,37 +18498,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTem
     'source': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSource(obj.source),
     'sources': obj.sources?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSources(y)),
     'syncPolicy': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSyncPolicy(obj.syncPolicy),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderAwsCodeCommitTagFilters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'value': obj.value,
   };
   // filter undefined values
   return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
@@ -21105,11 +18894,6 @@ export interface ApplicationSetSpecGeneratorsMergeTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -21131,7 +18915,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSourceHelm(o
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -21349,11 +19132,6 @@ export interface ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -21375,7 +19153,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesHelm(
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -21605,593 +19382,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyRe
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated#allowEmpty
-   */
-  readonly allowEmpty?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated#prune
-   */
-  readonly prune?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated#selfHeal
-   */
-  readonly selfHeal?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyAutomated | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allowEmpty': obj.allowEmpty,
-    'prune': obj.prune,
-    'selfHeal': obj.selfHeal,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry#backoff
-   */
-  readonly backoff?: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry#limit
-   */
-  readonly limit?: number;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetry | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'backoff': toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj.backoff),
-    'limit': obj.limit,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourceDirectory
  */
 export interface ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourceDirectory {
@@ -22279,11 +19469,6 @@ export interface ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -22305,7 +19490,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpecSource
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -22523,11 +19707,6 @@ export interface ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourcesHelm 
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsPullRequestTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -22549,7 +19728,6 @@ export function toJson_ApplicationSetSpecGeneratorsPullRequestTemplateSpecSource
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -22866,11 +20044,6 @@ export interface ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourceHelm {
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -22892,7 +20065,6 @@ export function toJson_ApplicationSetSpecGeneratorsScmProviderTemplateSpecSource
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -23110,11 +20282,6 @@ export interface ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourcesHelm 
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsScmProviderTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -23136,7 +20303,6 @@ export function toJson_ApplicationSetSpecGeneratorsScmProviderTemplateSpecSource
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -26642,386 +23808,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateS
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination#server
-   */
-  readonly server?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecDestination | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'namespace': obj.namespace,
-    'server': obj.server,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#group
-   */
-  readonly group?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#jqPathExpressions
-   */
-  readonly jqPathExpressions?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#jsonPointers
-   */
-  readonly jsonPointers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#kind
-   */
-  readonly kind: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#managedFieldsManagers
-   */
-  readonly managedFieldsManagers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecIgnoreDifferences | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'group': obj.group,
-    'jqPathExpressions': obj.jqPathExpressions?.map(y => y),
-    'jsonPointers': obj.jsonPointers?.map(y => y),
-    'kind': obj.kind,
-    'managedFieldsManagers': obj.managedFieldsManagers?.map(y => y),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecInfo | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSource | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSources | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy#automated
-   */
-  readonly automated?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy#managedNamespaceMetadata
-   */
-  readonly managedNamespaceMetadata?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy#retry
-   */
-  readonly retry?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy#syncOptions
-   */
-  readonly syncOptions?: string[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicy | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'automated': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj.automated),
-    'managedNamespaceMetadata': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj.managedNamespaceMetadata),
-    'retry': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry(obj.retry),
-    'syncOptions': obj.syncOptions?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBasicAuthPasswordRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketBearerTokenTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServerBasicAuthPasswordRef
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestBitbucketServerBasicAuthPasswordRef {
@@ -29449,386 +26235,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination#server
-   */
-  readonly server?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecDestination | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'namespace': obj.namespace,
-    'server': obj.server,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#group
-   */
-  readonly group?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#jqPathExpressions
-   */
-  readonly jqPathExpressions?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#jsonPointers
-   */
-  readonly jsonPointers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#kind
-   */
-  readonly kind: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#managedFieldsManagers
-   */
-  readonly managedFieldsManagers?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences#namespace
-   */
-  readonly namespace?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecIgnoreDifferences | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'group': obj.group,
-    'jqPathExpressions': obj.jqPathExpressions?.map(y => y),
-    'jsonPointers': obj.jsonPointers?.map(y => y),
-    'kind': obj.kind,
-    'managedFieldsManagers': obj.managedFieldsManagers?.map(y => y),
-    'name': obj.name,
-    'namespace': obj.namespace,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecInfo | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSource | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#chart
-   */
-  readonly chart?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#directory
-   */
-  readonly directory?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#helm
-   */
-  readonly helm?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#kustomize
-   */
-  readonly kustomize?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#path
-   */
-  readonly path?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#plugin
-   */
-  readonly plugin?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#ref
-   */
-  readonly ref?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#repoURL
-   */
-  readonly repoUrl: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources#targetRevision
-   */
-  readonly targetRevision?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSources | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'chart': obj.chart,
-    'directory': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory(obj.directory),
-    'helm': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm(obj.helm),
-    'kustomize': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize(obj.kustomize),
-    'path': obj.path,
-    'plugin': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin(obj.plugin),
-    'ref': obj.ref,
-    'repoURL': obj.repoUrl,
-    'targetRevision': obj.targetRevision,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy#automated
-   */
-  readonly automated?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy#managedNamespaceMetadata
-   */
-  readonly managedNamespaceMetadata?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy#retry
-   */
-  readonly retry?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy#syncOptions
-   */
-  readonly syncOptions?: string[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicy | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'automated': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj.automated),
-    'managedNamespaceMetadata': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj.managedNamespaceMetadata),
-    'retry': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry(obj.retry),
-    'syncOptions': obj.syncOptions?.map(y => y),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBasicAuthPasswordRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef#key
-   */
-  readonly key: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef#secretName
-   */
-  readonly secretName: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketBearerTokenTokenRef | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'key': obj.key,
-    'secretName': obj.secretName,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServerBasicAuthPasswordRef
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestBitbucketServerBasicAuthPasswordRef {
@@ -30972,463 +27378,6 @@ export interface ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyRetryBac
  */
 /* eslint-disable max-len, quote-props */
 export function toJson_ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyRetryBackoff(obj: ApplicationSetSpecGeneratorsMergeTemplateSpecSyncPolicyRetryBackoff | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'duration': obj.duration,
-    'factor': obj.factor,
-    'maxDuration': obj.maxDuration,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcePluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesPluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#duration
-   */
-  readonly duration?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#factor
-   */
-  readonly factor?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#maxDuration
-   */
-  readonly maxDuration?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'duration': obj.duration,
@@ -33146,11 +29095,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionReso
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -33172,7 +29116,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisi
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -33390,11 +29333,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionReso
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -33416,7 +29354,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsClusterDecisi
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -33733,11 +29670,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpe
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -33759,7 +29691,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTempl
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -33977,11 +29908,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpe
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -34003,7 +29929,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsClustersTempl
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -34320,11 +30245,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSour
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -34346,7 +30266,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSp
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -34564,11 +30483,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSour
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -34590,7 +30504,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsGitTemplateSp
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -34907,11 +30820,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSou
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -34933,7 +30841,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateS
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -35151,11 +31058,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSou
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -35177,7 +31079,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateS
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -35407,593 +31308,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateS
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated#allowEmpty
-   */
-  readonly allowEmpty?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated#prune
-   */
-  readonly prune?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated#selfHeal
-   */
-  readonly selfHeal?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyAutomated | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allowEmpty': obj.allowEmpty,
-    'prune': obj.prune,
-    'selfHeal': obj.selfHeal,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry#backoff
-   */
-  readonly backoff?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry#limit
-   */
-  readonly limit?: number;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetry | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'backoff': toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj.backoff),
-    'limit': obj.limit,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceDirectory
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceDirectory {
@@ -36081,11 +31395,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplate
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -36107,7 +31416,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -36325,11 +31633,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplate
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -36351,7 +31654,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -36668,11 +31970,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplate
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -36694,7 +31991,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -36912,11 +32208,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplate
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -36938,7 +32229,6 @@ export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsScmProviderTe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -37431,11 +32721,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResou
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResourceTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -37457,7 +32742,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisio
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -37675,11 +32959,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResou
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisionResourceTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -37701,7 +32980,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsClusterDecisio
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -38018,11 +33296,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpec
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -38044,7 +33317,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsClustersTempla
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -38262,11 +33534,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpec
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsClustersTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -38288,7 +33555,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsClustersTempla
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -38605,11 +33871,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourc
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -38631,7 +33892,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -38849,11 +34109,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourc
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -38875,7 +34130,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsGitTemplateSpe
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -39192,11 +34446,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSour
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -39218,7 +34467,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -39436,11 +34684,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSour
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -39462,7 +34705,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -39692,593 +34934,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory#exclude
-   */
-  readonly exclude?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory#include
-   */
-  readonly include?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory#jsonnet
-   */
-  readonly jsonnet?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory#recurse
-   */
-  readonly recurse?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectory | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'exclude': obj.exclude,
-    'include': obj.include,
-    'jsonnet': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj.jsonnet),
-    'recurse': obj.recurse,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#fileParameters
-   */
-  readonly fileParameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#ignoreMissingValueFiles
-   */
-  readonly ignoreMissingValueFiles?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#passCredentials
-   */
-  readonly passCredentials?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#releaseName
-   */
-  readonly releaseName?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#skipCrds
-   */
-  readonly skipCrds?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#valueFiles
-   */
-  readonly valueFiles?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#values
-   */
-  readonly values?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelm | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'fileParameters': obj.fileParameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters(y)),
-    'ignoreMissingValueFiles': obj.ignoreMissingValueFiles,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters(y)),
-    'passCredentials': obj.passCredentials,
-    'releaseName': obj.releaseName,
-    'skipCrds': obj.skipCrds,
-    'valueFiles': obj.valueFiles?.map(y => y),
-    'values': obj.values,
-    'valuesObject': obj.valuesObject,
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotations
-   */
-  readonly commonAnnotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#commonAnnotationsEnvsubst
-   */
-  readonly commonAnnotationsEnvsubst?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#commonLabels
-   */
-  readonly commonLabels?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonAnnotations
-   */
-  readonly forceCommonAnnotations?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#forceCommonLabels
-   */
-  readonly forceCommonLabels?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#images
-   */
-  readonly images?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#namePrefix
-   */
-  readonly namePrefix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#nameSuffix
-   */
-  readonly nameSuffix?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#namespace
-   */
-  readonly namespace?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#replicas
-   */
-  readonly replicas?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize#version
-   */
-  readonly version?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomize | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'commonAnnotations': ((obj.commonAnnotations) === undefined) ? undefined : (Object.entries(obj.commonAnnotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'commonAnnotationsEnvsubst': obj.commonAnnotationsEnvsubst,
-    'commonLabels': ((obj.commonLabels) === undefined) ? undefined : (Object.entries(obj.commonLabels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'forceCommonAnnotations': obj.forceCommonAnnotations,
-    'forceCommonLabels': obj.forceCommonLabels,
-    'images': obj.images?.map(y => y),
-    'namePrefix': obj.namePrefix,
-    'nameSuffix': obj.nameSuffix,
-    'namespace': obj.namespace,
-    'replicas': obj.replicas?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(y)),
-    'version': obj.version,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin#env
-   */
-  readonly env?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin#parameters
-   */
-  readonly parameters?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPlugin | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'env': obj.env?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv(y)),
-    'name': obj.name,
-    'parameters': obj.parameters?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated#allowEmpty
-   */
-  readonly allowEmpty?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated#prune
-   */
-  readonly prune?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated#selfHeal
-   */
-  readonly selfHeal?: boolean;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyAutomated | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'allowEmpty': obj.allowEmpty,
-    'prune': obj.prune,
-    'selfHeal': obj.selfHeal,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#annotations
-   */
-  readonly annotations?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata#labels
-   */
-  readonly labels?: { [key: string]: string };
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyManagedNamespaceMetadata | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'annotations': ((obj.annotations) === undefined) ? undefined : (Object.entries(obj.annotations).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'labels': ((obj.labels) === undefined) ? undefined : (Object.entries(obj.labels).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry#backoff
-   */
-  readonly backoff?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry#limit
-   */
-  readonly limit?: number;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetry | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'backoff': toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj.backoff),
-    'limit': obj.limit,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceDirectory
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceDirectory {
@@ -40366,11 +35021,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateS
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -40392,7 +35042,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTem
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -40610,11 +35259,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateS
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -40636,7 +35280,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTem
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -40953,11 +35596,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateS
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateSpecSourceHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateSpecSourceHelm#version
    */
   readonly version?: string;
@@ -40979,7 +35617,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTem
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -41197,11 +35834,6 @@ export interface ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateS
   readonly values?: string;
 
   /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateSpecSourcesHelm#valuesObject
-   */
-  readonly valuesObject?: any;
-
-  /**
    * @schema ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTemplateSpecSourcesHelm#version
    */
   readonly version?: string;
@@ -41223,7 +35855,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsScmProviderTem
     'skipCrds': obj.skipCrds,
     'valueFiles': obj.valueFiles?.map(y => y),
     'values': obj.values,
-    'valuesObject': obj.valuesObject,
     'version': obj.version,
   };
   // filter undefined values
@@ -41623,182 +36254,6 @@ export class ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesKustomizeReplic
   }
   public static fromString(value: string): ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesKustomizeReplicasCount {
     return new ApplicationSetSpecGeneratorsMergeTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
   }
   private constructor(public readonly value: number | string) {
   }
@@ -43973,463 +38428,6 @@ export interface ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSyn
  */
 /* eslint-disable max-len, quote-props */
 export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSyncPolicyRetryBackoff(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSyncPolicyRetryBackoff | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'duration': obj.duration,
-    'factor': obj.factor,
-    'maxDuration': obj.maxDuration,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcePluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesPluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#duration
-   */
-  readonly duration?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#factor
-   */
-  readonly factor?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#maxDuration
-   */
-  readonly maxDuration?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff | undefined): Record<string, any> | undefined {
   if (obj === undefined) { return undefined; }
   const result = {
     'duration': obj.duration,
@@ -47184,463 +41182,6 @@ export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSp
 /* eslint-enable max-len, quote-props */
 
 /**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcePluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#extVars
-   */
-  readonly extVars?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#libs
-   */
-  readonly libs?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet#tlas
-   */
-  readonly tlas?: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas[];
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnet | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'extVars': obj.extVars?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(y)),
-    'libs': obj.libs?.map(y => y),
-    'tlas': obj.tlas?.map(y => toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(y)),
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters#path
-   */
-  readonly path?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmFileParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'path': obj.path,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters#forceString
-   */
-  readonly forceString?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters#value
-   */
-  readonly value?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesHelmParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'forceString': obj.forceString,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#count
-   */
-  readonly count: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas#name
-   */
-  readonly name: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'count': obj.count?.value,
-    'name': obj.name,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginEnv | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters#array
-   */
-  readonly array?: string[];
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters#map
-   */
-  readonly map?: { [key: string]: string };
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters#name
-   */
-  readonly name?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters#string
-   */
-  readonly string?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesPluginParameters | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'array': obj.array?.map(y => y),
-    'map': ((obj.map) === undefined) ? undefined : (Object.entries(obj.map).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {})),
-    'name': obj.name,
-    'string': obj.string,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#duration
-   */
-  readonly duration?: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#factor
-   */
-  readonly factor?: number;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff#maxDuration
-   */
-  readonly maxDuration?: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSyncPolicyRetryBackoff | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'duration': obj.duration,
-    'factor': obj.factor,
-    'maxDuration': obj.maxDuration,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
  * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceDirectoryJsonnet
  */
 export interface ApplicationSetSpecGeneratorsMergeGeneratorsPullRequestTemplateSpecSourceDirectoryJsonnet {
@@ -49259,182 +42800,6 @@ export class ApplicationSetSpecGeneratorsMatrixGeneratorsListTemplateSpecSources
 }
 
 /**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMatrixGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
  * @schema ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceDirectoryJsonnetExtVars
  */
 export interface ApplicationSetSpecGeneratorsMatrixGeneratorsPullRequestTemplateSpecSourceDirectoryJsonnetExtVars {
@@ -50485,182 +43850,6 @@ export class ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourcesK
   }
   public static fromString(value: string): ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourcesKustomizeReplicasCount {
     return new ApplicationSetSpecGeneratorsMergeGeneratorsListTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourceKustomizeReplicasCount(value);
-  }
-  private constructor(public readonly value: number | string) {
-  }
-}
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetExtVars | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas
- */
-export interface ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas {
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#code
-   */
-  readonly code?: boolean;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#name
-   */
-  readonly name: string;
-
-  /**
-   * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas#value
-   */
-  readonly value: string;
-
-}
-
-/**
- * Converts an object of type 'ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas' to JSON representation.
- */
-/* eslint-disable max-len, quote-props */
-export function toJson_ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas(obj: ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesDirectoryJsonnetTlas | undefined): Record<string, any> | undefined {
-  if (obj === undefined) { return undefined; }
-  const result = {
-    'code': obj.code,
-    'name': obj.name,
-    'value': obj.value,
-  };
-  // filter undefined values
-  return Object.entries(result).reduce((r, i) => (i[1] === undefined) ? r : ({ ...r, [i[0]]: i[1] }), {});
-}
-/* eslint-enable max-len, quote-props */
-
-/**
- * @schema ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount
- */
-export class ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-  public static fromNumber(value: number): ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
-  }
-  public static fromString(value: string): ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount {
-    return new ApplicationSetSpecGeneratorsMergeGeneratorsPluginTemplateSpecSourcesKustomizeReplicasCount(value);
   }
   private constructor(public readonly value: number | string) {
   }
