@@ -33,9 +33,9 @@ type ZeroSDPReconciler struct {
 	Scheme *runtime.Scheme
 }
 
-//+kubebuilder:rbac:groups=install.alo.dev,resources=zerosdps,verbs=get;list;watch;create;update;patch;delete
-//+kubebuilder:rbac:groups=install.alo.dev,resources=zerosdps/status,verbs=get;update;patch
-//+kubebuilder:rbac:groups=install.alo.dev,resources=zerosdps/finalizers,verbs=update
+//+kubebuilder:rbac:groups=install.zerosdp.audacioustux.com,resources=zerosdps,verbs=get;list;watch;create;update;patch;delete
+//+kubebuilder:rbac:groups=install.zerosdp.audacioustux.com,resources=zerosdps/status,verbs=get;update;patch
+//+kubebuilder:rbac:groups=install.zerosdp.audacioustux.com,resources=zerosdps/finalizers,verbs=update
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.

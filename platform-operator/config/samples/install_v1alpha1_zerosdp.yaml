@@ -1,4 +1,4 @@
-apiVersion: install.alo.dev/v1alpha1
+apiVersion: install.zerosdp.audacioustux.com/v1alpha1
 kind: ZeroSDP
 metadata:
   labels:

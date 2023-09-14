@@ -12,7 +12,7 @@ metadata:
   name: zerosdp-viewer-role
 rules:
 - apiGroups:
-  - install.alo.dev
+  - install.zerosdp.audacioustux.com
   resources:
   - zerosdps
   verbs:
@@ -20,7 +20,7 @@ rules:
   - list
   - watch
 - apiGroups:
-  - install.alo.dev
+  - install.zerosdp.audacioustux.com
   resources:
   - zerosdps/status
   verbs:
