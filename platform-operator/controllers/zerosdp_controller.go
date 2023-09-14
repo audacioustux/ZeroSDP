@@ -24,7 +24,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	installv1alpha1 "github.com/audacioustux/sdp/api/v1alpha1"
+	installv1alpha1 "github.com/audacioustux/ZeroSDP/platform-operator/api/v1alpha1"
 )
 
 // ZeroSDPReconciler reconciles a ZeroSDP object

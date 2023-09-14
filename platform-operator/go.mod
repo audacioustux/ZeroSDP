@@ -1,4 +1,4 @@
-module github.com/audacioustux/sdp
+module github.com/audacioustux/ZeroSDP/platform-operator
 
 go 1.19
 
