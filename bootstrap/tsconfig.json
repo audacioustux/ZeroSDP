@@ -1,9 +1,0 @@
-{
-    "extends": "../tsconfig.base.json",
-    "compilerOptions": {
-        "outDir": "build"
-    },
-    "files": [
-        "main.ts"
-    ]
-}

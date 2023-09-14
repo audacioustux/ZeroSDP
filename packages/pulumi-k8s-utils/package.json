@@ -1,9 +1,0 @@
-{
-  "name": "@audacioustux/pulumi-k8s-utils",
-  "main": "build/main.js",
-  "type": "module",
-  "private": true,
-  "scripts": {
-    "build": "tsc"
-  }
-}

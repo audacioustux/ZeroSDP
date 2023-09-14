@@ -1,9 +1,0 @@
-name: bootstrap
-runtime: 
-  name: nodejs
-  options:
-    typescript: false
-description: Bootstraps SDP on Kubernetes Cluster
-config:
-  pulumi:disable-default-providers:
-    - '*'

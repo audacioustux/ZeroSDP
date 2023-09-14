@@ -2,34 +2,16 @@
 
 set -eax
 
-# clean up any untracked files
-minikube delete -p sdp
+# set sdp as the default profile
+minikube profile sdp
+# minikube extension mounts ~/.minikube to devcontainer
+# so need to delete previous profile if it exists
+minikube delete
 # start minikube
-minikube start --cpus 8 --memory 8g --driver=docker --cni=false -p sdp
+minikube start --cpus 8 --memory 8g --driver=docker --cni=false --kubernetes-version=v1.26
 # install ciliium
 cilium install
 # enable hubble
 cilium hubble enable
-
-# if no backend url is specified - check for access token and use cloud backend
-if [[ -z "$PULUMI_BACKEND_URL" ]]; then
-    # if no pulumi cloud access token is specified - use local backend
-    if [[ -z "$PULUMI_ACCESS_TOKEN" ]]; then
-        export PULUMI_BACKEND_URL="file://~"
-        # if no passphrase is specified - use default passphrase, and add to zshrc
-        if [[ -z "$PULUMI_CONFIG_PASSPHRASE" ]]; then
-            export PULUMI_CONFIG_PASSPHRASE="pulumi"
-            echo "export PULUMI_CONFIG_PASSPHRASE=$PULUMI_CONFIG_PASSPHRASE" >> ~/.zshrc
-        fi
-    fi
-fi
-
-pulumi login
-
-# set default org if specified
-if [[ -n "$PULUMI_DEFAULT_ORG" ]]; then
-    pulumi org set-default $PULUMI_DEFAULT_ORG
-fi
-
-export PULUMI_STACK_NAME=dev
-npm run bootstrap
+# use minikube's docker daemon
+echo "eval \$(minikube docker-env)" >> ~/.zshrc

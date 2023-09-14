@@ -1,4 +1,0 @@
-encryptionsalt: v1:o5zK4yBfPfc=:v1:E4IUrUFwvrXIl1VR:ezExvtHljP8dSZWadmTdLodUgxeuhA==
-config:
-  bootstrap:manifests: 
-    - ../manifests/dist/*.k8s.yaml

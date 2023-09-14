@@ -1,0 +1,24 @@
+version: "3"
+
+tasks:
+  default:
+    cmd: task -l --sort none
+    silent: true
+
+  argocd:up:
+    vars:
+      MANIFEST: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    cmds:
+      - kubectl create namespace argocd
+      - kubectl apply -n argocd -f {{.MANIFEST}}
+  argocd:down:
+    vars:
+      MANIFEST: https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
+    cmds:
+      - kubectl delete -n argocd -f {{.MANIFEST}}
+      - kubectl delete namespace argocd
+
+  idp:up:
+    desc: Initialize the IDP (Internal Developer Platform)
+    deps:
+      - task: argocd:up
