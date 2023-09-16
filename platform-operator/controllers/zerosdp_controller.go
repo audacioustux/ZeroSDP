@@ -63,8 +63,8 @@ type ZeroSDPReconciler struct {
 
 // Reconcile is part of the main kubernetes reconciliation loop which aims to
 // move the current state of the cluster closer to the desired state.
-// 
-// Modify the Reconcile function to compare the state specified by the ZeroSDP object against the actual cluster state, 
+//
+// Modify the Reconcile function to compare the state specified by the ZeroSDP object against the actual cluster state,
 // and then perform operations to make the cluster state reflect the state specified by the user.
 //
 // For more details, check Reconcile and its Result here:
@@ -309,7 +309,7 @@ func (r *ZeroSDPReconciler) deploymentForZeroSDP(
 			Namespace: zerosdp.Namespace,
 		},
 		Spec: appsv1.DeploymentSpec{
-			Replicas: &zerosdp.Spec.Si
+			Replicas: &zerosdp.Spec.Size,
 			Selector: &metav1.LabelSelector{
 				MatchLabels: map[string]string{"app": zerosdp.Name},
 			},
