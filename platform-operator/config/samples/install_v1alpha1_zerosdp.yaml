@@ -9,4 +9,6 @@ metadata:
     app.kubernetes.io/created-by: platform-operator
   name: zerosdp-sample
 spec:
+  size: 3
+  containerPort: 8080
   # TODO(user): Add fields here
