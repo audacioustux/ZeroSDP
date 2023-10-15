@@ -2,22 +2,9 @@
 # This file is used to track the info used to scaffold your project
 # and allow the plugins properly work.
 # More info: https://book.kubebuilder.io/reference/project-config.html
-domain: zerosdp.audacioustux.com
+domain: alo.dev
 layout:
-- go.kubebuilder.io/v3
-plugins:
-  manifests.sdk.operatorframework.io/v2: {}
-  scorecard.sdk.operatorframework.io/v2: {}
+- go.kubebuilder.io/v4
 projectName: platform-operator
-repo: github.com/audacioustux/ZeroSDP/platform-operator
-resources:
-- api:
-    crdVersion: v1
-    namespaced: true
-  controller: true
-  domain: zerosdp.audacioustux.com
-  group: install
-  kind: ZeroSDP
-  path: github.com/audacioustux/ZeroSDP/platform-operator/api/v1alpha1
-  version: v1alpha1
+repo: github.com/audacioustux/zerosdp/platform-operator
 version: "3"

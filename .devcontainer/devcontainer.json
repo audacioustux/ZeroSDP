@@ -16,7 +16,8 @@
         "GitHub.copilot",
         "Orta.vscode-twoslash-queries",
         "mutantdino.resourcemonitor",
-        "Gruntfuggly.todo-tree"
+        "Gruntfuggly.todo-tree",
+        "ms-vscode.makefile-tools"
       ]
     }
   },
@@ -41,7 +42,7 @@
     "ghcr.io/audacioustux/devcontainers/k9s:1": {},
     "ghcr.io/audacioustux/devcontainers/cilium:1": {},
     "ghcr.io/audacioustux/devcontainers/taskfile:1": {},
-    "ghcr.io/audacioustux/devcontainers/operator-sdk:1": {}
+    "ghcr.io/audacioustux/devcontainers/kubebuilder:1": {}
   },
   "updateContentCommand": ".devcontainer/scripts/update.sh",
   "postCreateCommand": ".devcontainer/scripts/post-create.sh",
