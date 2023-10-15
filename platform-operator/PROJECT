@@ -7,4 +7,14 @@ layout:
 - go.kubebuilder.io/v4
 projectName: platform-operator
 repo: github.com/audacioustux/zerosdp/platform-operator
+resources:
+- api:
+    crdVersion: v1
+    namespaced: true
+  controller: true
+  domain: alo.dev
+  group: zerosdp
+  kind: Platform
+  path: github.com/audacioustux/zerosdp/platform-operator/api/v1
+  version: v1
 version: "3"

@@ -1,0 +1,12 @@
+apiVersion: zerosdp.alo.dev/v1
+kind: Platform
+metadata:
+  labels:
+    app.kubernetes.io/name: platform
+    app.kubernetes.io/instance: platform-sample
+    app.kubernetes.io/part-of: platform-operator
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/created-by: platform-operator
+  name: platform-sample
+spec:
+  # TODO(user): Add fields here
