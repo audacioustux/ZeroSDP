@@ -1,4 +1,4 @@
-## Append samples of your project ##
+## Append samples you want in your CSV to this file as resources ##
 resources:
-- zerosdp_v1_platform.yaml
+- zerosdp_v1alpha1_platform.yaml
 #+kubebuilder:scaffold:manifestskustomizesamples
