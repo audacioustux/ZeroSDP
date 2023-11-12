@@ -4,3 +4,15 @@ tasks:
   default:
     cmd: task -l --sort none
     silent: true
+  dev:platform:
+    dir: platform-operator
+    cmd: make install run
+  dev:platform:watch:
+    dir: platform-operator
+    cmd: |
+      watchexec \
+        --print-events \
+        -i "**/bin/**" \
+        -i "**/zz_generated.deepcopy.go" \
+        -r -e go \
+        -- task dev:platform
