@@ -4,31 +4,33 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-type ProfileType string
-
-const (
-	Dev  ProfileType = "dev"
-	Prod ProfileType = "prod"
-)
-
-type PlatformSpec struct {
-	Profile ProfileType `json:"profile,omitempty"`
+type ArgoCDComponent struct {
+	Enabled *bool `json:"enabled,omitempty"`
 }
 
-type StateType string
+type ComponentSpec struct {
+	ArgoCD *ArgoCDComponent `json:"argoCD,omitempty"`
+}
+
+type PlatformSpec struct {
+	Components ComponentSpec `json:"components,omitempty"`
+}
+
+type ConditionType string
 
 const (
-	Ready        StateType = "Ready"
-	Failed       StateType = "Failed"
-	Reconciling  StateType = "Reconciling"
-	Uninstalling StateType = "Uninstalling"
-	Paused       StateType = "Paused"
-	Upgrading    StateType = "Upgrading"
+	Ready ConditionType = "Ready"
 )
 
 type PlatformStatus struct {
-	// +operator-sdk:csv:customresourcedefinitions:type=status
-	Conditions []metav1.Condition `json:"conditions,omitempty" patchStrategy:"merge" patchMergeKey:"type" protobuf:"bytes,1,rep,name=conditions"`
+	Conditions []metav1.Condition `json:"conditions,omitempty"`
+	Components ComponentStatusMap `json:"components,omitempty"`
+}
+
+type ComponentStatusMap map[string]*ComponentStatus
+
+type ComponentStatus struct {
+	Conditions []metav1.Condition `json:"conditions,omitempty"`
 }
 
 // +kubebuilder:object:root=true
