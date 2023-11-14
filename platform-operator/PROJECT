@@ -4,12 +4,9 @@
 # More info: https://book.kubebuilder.io/reference/project-config.html
 domain: alo.dev
 layout:
-- go.kubebuilder.io/v3
-plugins:
-  manifests.sdk.operatorframework.io/v2: {}
-  scorecard.sdk.operatorframework.io/v2: {}
+- go.kubebuilder.io/v4
 projectName: platform-operator
-repo: github.com/audacioustux/zerosdp
+repo: github.com/audacioustux/zerosdp/platform-operator
 resources:
 - api:
     crdVersion: v1
@@ -18,10 +15,6 @@ resources:
   domain: alo.dev
   group: zerosdp
   kind: Platform
-  path: github.com/audacioustux/zerosdp/api/v1alpha1
-  version: v1alpha1
-  webhooks:
-    defaulting: true
-    validation: true
-    webhookVersion: v1
+  path: github.com/audacioustux/zerosdp/platform-operator/api/v1
+  version: v1
 version: "3"

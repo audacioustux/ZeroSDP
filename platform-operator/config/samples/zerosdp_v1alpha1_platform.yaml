@@ -1,8 +1,0 @@
-apiVersion: zerosdp.alo.dev/v1alpha1
-kind: Platform
-metadata:
-  name: platform-sample
-spec:
-  components:
-    argoCD:
-      enabled: true

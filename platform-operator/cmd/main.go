@@ -30,10 +30,10 @@ import (
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
+	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 
-	zerosdpv1alpha1 "github.com/audacioustux/zerosdp/api/v1alpha1"
-	"github.com/audacioustux/zerosdp/controllers"
-	"github.com/audacioustux/zerosdp/pkg/logging"
+	zerosdpv1 "github.com/audacioustux/zerosdp/platform-operator/api/v1"
+	"github.com/audacioustux/zerosdp/platform-operator/internal/controller"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -45,7 +45,7 @@ var (
 func init() {
 	utilruntime.Must(clientgoscheme.AddToScheme(scheme))
 
-	utilruntime.Must(zerosdpv1alpha1.AddToScheme(scheme))
+	utilruntime.Must(zerosdpv1.AddToScheme(scheme))
 	//+kubebuilder:scaffold:scheme
 }
 
@@ -68,11 +68,10 @@ func main() {
 
 	mgr, err := ctrl.NewManager(ctrl.GetConfigOrDie(), ctrl.Options{
 		Scheme:                 scheme,
-		MetricsBindAddress:     metricsAddr,
-		Port:                   9443,
+		Metrics:                metricsserver.Options{BindAddress: metricsAddr},
 		HealthProbeBindAddress: probeAddr,
 		LeaderElection:         enableLeaderElection,
-		LeaderElectionID:       "f56ee67d.alo.dev",
+		LeaderElectionID:       "a4d4bff8.alo.dev",
 		// LeaderElectionReleaseOnCancel defines if the leader should step down voluntarily
 		// when the Manager ends. This requires the binary to immediately end when the
 		// Manager is stopped, otherwise, this setting is unsafe. Setting this significantly
@@ -89,19 +88,13 @@ func main() {
 		setupLog.Error(err, "unable to start manager")
 		os.Exit(1)
 	}
-	if err = (&controllers.PlatformReconciler{
+
+	if err = (&controller.PlatformReconciler{
 		Client: mgr.GetClient(),
 		Scheme: mgr.GetScheme(),
-		Log:    logging.NewLogrLogger(ctrl.Log.WithValues("controller", "Platform")),
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Platform")
 		os.Exit(1)
-	}
-	if os.Getenv("ENABLE_WEBHOOKS") != "false" {
-		if err = (&zerosdpv1alpha1.Platform{}).SetupWebhookWithManager(mgr); err != nil {
-			setupLog.Error(err, "unable to create webhook", "webhook", "Platform")
-			os.Exit(1)
-		}
 	}
 	//+kubebuilder:scaffold:builder
 
