@@ -19,12 +19,17 @@ package controller
 import (
 	"context"
 
+	"k8s.io/apimachinery/pkg/api/meta"
+	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	zerosdpv1 "github.com/audacioustux/zerosdp/platform-operator/api/v1"
+	helm "github.com/audacioustux/zerosdp/platform-operator/pkg/helm"
+
+	"github.com/go-logr/logr"
 )
 
 // PlatformReconciler reconciles a Platform object
@@ -37,19 +42,78 @@ type PlatformReconciler struct {
 //+kubebuilder:rbac:groups=zerosdp.alo.dev,resources=platforms/status,verbs=get;update;patch
 //+kubebuilder:rbac:groups=zerosdp.alo.dev,resources=platforms/finalizers,verbs=update
 
-// Reconcile is part of the main kubernetes reconciliation loop which aims to
-// move the current state of the cluster closer to the desired state.
-// TODO(user): Modify the Reconcile function to compare the state specified by
-// the Platform object against the actual cluster state, and then
-// perform operations to make the cluster state reflect the state specified by
-// the user.
-//
-// For more details, check Reconcile and its Result here:
-// - https://pkg.go.dev/sigs.k8s.io/controller-runtime@v0.16.3/pkg/reconcile
 func (r *PlatformReconciler) Reconcile(ctx context.Context, req ctrl.Request) (ctrl.Result, error) {
-	_ = log.FromContext(ctx)
+	log := log.FromContext(ctx)
 
-	// TODO(user): your logic here
+	platform := &zerosdpv1.Platform{}
+	if err := r.Get(ctx, req.NamespacedName, platform); err != nil {
+		return ctrl.Result{}, client.IgnoreNotFound(err)
+	}
+
+	// Update status
+	if err := r.updateStatus(ctx, platform, log); err != nil {
+		log.Error(err, "Failed to update status")
+		return ctrl.Result{Requeue: true}, err
+	}
+
+	// Reconcile
+	return r.reconcile(ctx, platform, log)
+}
+
+func (r PlatformReconciler) updateStatus(ctx context.Context, platform *zerosdpv1.Platform, log logr.Logger) error {
+	log.V(1).Info("Updating status")
+	defer log.V(1).Info("Updated status")
+
+	// Initialize status
+	if platform.Status.Conditions == nil || len(platform.Status.Conditions) == 0 {
+		log.Info("Initializing status")
+		meta.SetStatusCondition(&platform.Status.Conditions, metav1.Condition{
+			Type:    string(zerosdpv1.Ready),
+			Status:  metav1.ConditionUnknown,
+			Reason:  "Reconciling",
+			Message: "Starting Reconciliation",
+		})
+	}
+
+	return r.Status().Update(ctx, platform)
+}
+
+func (r PlatformReconciler) reconcile(ctx context.Context, platform *zerosdpv1.Platform, log logr.Logger) (ctrl.Result, error) {
+	log.V(1).Info("Reconciling")
+	defer log.V(1).Info("Reconciled")
+
+	// Check if status is unknown
+	if meta.IsStatusConditionPresentAndEqual(platform.Status.Conditions, string(zerosdpv1.Ready), metav1.ConditionUnknown) {
+		log.Info("Status is unknown")
+
+		helm, err := helm.NewHelmHelper(log)
+		if err != nil {
+			log.Error(err, "Failed to create Helm Helper")
+			return ctrl.Result{}, err
+		}
+
+		client, err := helm.NewHelminstall(platform.Namespace, "hello-world", "https://helm.github.io/examples")
+		if err != nil {
+			log.Error(err, "Failed to create Helm Install")
+			return ctrl.Result{}, err
+		}
+
+		chart, err := helm.GetChart(client, "hello-world")
+		if err != nil {
+			log.Error(err, "Failed to get Helm Chart")
+			return ctrl.Result{}, err
+		}
+
+		release, err := helm.InstallChart(client, chart)
+		if err != nil {
+			log.Error(err, "Failed to install Helm Chart")
+			return ctrl.Result{}, err
+		}
+
+		log.Info("Helm Chart installed", "release", release.Name)
+
+		return ctrl.Result{}, nil
+	}
 
 	return ctrl.Result{}, nil
 }

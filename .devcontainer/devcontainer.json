@@ -43,7 +43,10 @@
     "ghcr.io/audacioustux/devcontainers/taskfile:1": {},
     "ghcr.io/audacioustux/devcontainers/kubebuilder:1": {},
     "ghcr.io/audacioustux/devcontainers/argo:1": {},
-    "ghcr.io/audacioustux/devcontainers/vegeta:1": {}
+    "ghcr.io/audacioustux/devcontainers/vegeta:1": {},
+    "ghcr.io/lee-orr/rusty-dev-containers/cargo-binstall": {
+      "packages": "watchexec-cli"
+    }
   },
   "updateContentCommand": ".devcontainer/scripts/update.sh",
   "postCreateCommand": ".devcontainer/scripts/post-create.sh",
