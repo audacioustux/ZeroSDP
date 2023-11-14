@@ -4,16 +4,12 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 )
 
-type ArgoCDComponent struct {
+type ComponentSpec struct {
 	Enabled *bool `json:"enabled,omitempty"`
 }
 
-type ComponentSpec struct {
-	ArgoCD *ArgoCDComponent `json:"argoCD,omitempty"`
-}
-
 type PlatformSpec struct {
-	Components ComponentSpec `json:"components,omitempty"`
+	Components map[string]*ComponentSpec `json:"components,omitempty"`
 }
 
 type ConditionType string
@@ -23,11 +19,9 @@ const (
 )
 
 type PlatformStatus struct {
-	Conditions []metav1.Condition `json:"conditions,omitempty"`
-	Components ComponentStatusMap `json:"components,omitempty"`
+	Conditions []metav1.Condition          `json:"conditions,omitempty"`
+	Components map[string]*ComponentStatus `json:"components,omitempty"`
 }
-
-type ComponentStatusMap map[string]*ComponentStatus
 
 type ComponentStatus struct {
 	Conditions []metav1.Condition `json:"conditions,omitempty"`

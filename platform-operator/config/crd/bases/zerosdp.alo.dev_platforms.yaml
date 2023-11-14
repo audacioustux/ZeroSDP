@@ -34,12 +34,11 @@ spec:
           spec:
             properties:
               components:
-                properties:
-                  argoCD:
-                    properties:
-                      enabled:
-                        type: boolean
-                    type: object
+                additionalProperties:
+                  properties:
+                    enabled:
+                      type: boolean
+                  type: object
                 type: object
             type: object
           status:

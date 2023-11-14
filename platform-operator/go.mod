@@ -1,6 +1,6 @@
 module github.com/audacioustux/zerosdp
 
-go 1.19
+go 1.21
 
 require (
 	github.com/go-logr/logr v1.2.3
@@ -10,6 +10,7 @@ require (
 	k8s.io/apimachinery v0.26.0
 	k8s.io/client-go v0.26.0
 	sigs.k8s.io/controller-runtime v0.14.1
+	helm.sh/helm/v3 v3.13.2
 )
 
 require (

@@ -50,12 +50,12 @@ func (r PlatformReconciler) reconcile(ctx context.Context, platform *zerosdpv1al
 	log.Debug("Reconciling")
 	defer log.Debug("Reconciled")
 
-	// log current status
+	// Log current status
 	log.Debug("Current status", "status", platform.Status)
 
-	// check if status is unknown
+	// Check if status is unknown
 	if meta.IsStatusConditionPresentAndEqual(platform.Status.Conditions, string(zerosdpv1alpha1.Ready), metav1.ConditionUnknown) {
-		log.Info("Platform status is unknown, requeueing")
+
 		return ctrl.Result{Requeue: true}, nil
 	}
 
@@ -81,12 +81,6 @@ func (r PlatformReconciler) updateStatus(ctx context.Context, platform *zerosdpv
 			Reason:  "Reconciling",
 			Message: "Starting Reconciliation",
 		})
-	}
-
-	// Initialize components status
-	if platform.Status.Components == nil {
-		log.Info("Initializing status")
-		platform.Status.Components = make(map[string]*zerosdpv1alpha1.ComponentStatus)
 	}
 
 	return r.Status().Update(ctx, platform)
