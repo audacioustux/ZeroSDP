@@ -29,11 +29,13 @@ import (
 	clientgoscheme "k8s.io/client-go/kubernetes/scheme"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
+	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/log/zap"
 	metricsserver "sigs.k8s.io/controller-runtime/pkg/metrics/server"
 
 	zerosdpv1 "github.com/audacioustux/zerosdp/platform-operator/api/v1"
 	"github.com/audacioustux/zerosdp/platform-operator/internal/controller"
+	"github.com/audacioustux/zerosdp/platform-operator/pkg/helm"
 	//+kubebuilder:scaffold:imports
 )
 
@@ -89,9 +91,16 @@ func main() {
 		os.Exit(1)
 	}
 
+	helmHelper, err := helm.NewHelmHelper(log.Log.WithName("helm").V(1))
+	if err != nil {
+		setupLog.Error(err, "unable to create helm helper")
+		os.Exit(1)
+	}
+
 	if err = (&controller.PlatformReconciler{
-		Client: mgr.GetClient(),
-		Scheme: mgr.GetScheme(),
+		Client:     mgr.GetClient(),
+		Scheme:     mgr.GetScheme(),
+		HelmHelper: helmHelper,
 	}).SetupWithManager(mgr); err != nil {
 		setupLog.Error(err, "unable to create controller", "controller", "Platform")
 		os.Exit(1)

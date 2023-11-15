@@ -27,7 +27,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	zerosdpv1 "github.com/audacioustux/zerosdp/platform-operator/api/v1"
-	helm "github.com/audacioustux/zerosdp/platform-operator/pkg/helm"
+	"github.com/audacioustux/zerosdp/platform-operator/pkg/helm"
 
 	"github.com/go-logr/logr"
 )
@@ -36,6 +36,7 @@ import (
 type PlatformReconciler struct {
 	client.Client
 	Scheme *runtime.Scheme
+	*helm.HelmHelper
 }
 
 //+kubebuilder:rbac:groups=zerosdp.alo.dev,resources=platforms,verbs=get;list;watch;create;update;patch;delete
@@ -53,7 +54,7 @@ func (r *PlatformReconciler) Reconcile(ctx context.Context, req ctrl.Request) (c
 	// Update status
 	if err := r.updateStatus(ctx, platform, log); err != nil {
 		log.Error(err, "Failed to update status")
-		return ctrl.Result{Requeue: true}, err
+		return ctrl.Result{}, err
 	}
 
 	// Reconcile
@@ -86,31 +87,15 @@ func (r PlatformReconciler) reconcile(ctx context.Context, platform *zerosdpv1.P
 	if meta.IsStatusConditionPresentAndEqual(platform.Status.Conditions, string(zerosdpv1.Ready), metav1.ConditionUnknown) {
 		log.Info("Status is unknown")
 
-		helm, err := helm.NewHelmHelper(log)
-		if err != nil {
-			log.Error(err, "Failed to create Helm Helper")
+		if err := r.HelmHelper.AddRepo("examples", "https://helm.github.io/examples"); err != nil {
+			log.Error(err, "Failed to add repo")
 			return ctrl.Result{}, err
 		}
 
-		client, err := helm.NewHelminstall(platform.Namespace, "hello-world", "https://helm.github.io/examples")
-		if err != nil {
-			log.Error(err, "Failed to create Helm Install")
+		if _, err := r.HelmHelper.InstallRelease("hello-world", "examples/hello-world", "default", nil); err != nil {
+			log.Error(err, "Failed to install release")
 			return ctrl.Result{}, err
 		}
-
-		chart, err := helm.GetChart(client, "hello-world")
-		if err != nil {
-			log.Error(err, "Failed to get Helm Chart")
-			return ctrl.Result{}, err
-		}
-
-		release, err := helm.InstallChart(client, chart)
-		if err != nil {
-			log.Error(err, "Failed to install Helm Chart")
-			return ctrl.Result{}, err
-		}
-
-		log.Info("Helm Chart installed", "release", release.Name)
 
 		return ctrl.Result{}, nil
 	}
