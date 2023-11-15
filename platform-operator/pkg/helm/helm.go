@@ -15,31 +15,31 @@ import (
 )
 
 type HelmHelper struct {
-	cfg  *action.Configuration
-	cli  *cli.EnvSettings
-	log  logr.Logger
-	repo *repo.File
+	config   *action.Configuration
+	settings *cli.EnvSettings
+	log      logr.Logger
+	repoFile *repo.File
 }
 
 func NewHelmHelper(log logr.Logger) (*HelmHelper, error) {
-	cli := cli.New()
-	actionConfig := new(action.Configuration)
+	settings := cli.New()
 
-	if err := actionConfig.Init(cli.RESTClientGetter(), cli.Namespace(), os.Getenv("HELM_DRIVER"), debug(log)); err != nil {
+	config := new(action.Configuration)
+	if err := config.Init(settings.RESTClientGetter(), settings.Namespace(), os.Getenv("HELM_DRIVER"), debug(log)); err != nil {
 		return nil, err
 	}
 
-	repoConfig := cli.RepositoryConfig
-	repofile, err := loadRepoFile(repoConfig)
+	repoConfig := settings.RepositoryConfig
+	repoFile, err := loadRepoFile(repoConfig)
 	if err != nil {
 		return nil, err
 	}
 
 	return &HelmHelper{
-		cfg:  actionConfig,
-		cli:  cli,
-		log:  log,
-		repo: repofile,
+		config:   config,
+		settings: settings,
+		log:      log,
+		repoFile: repoFile,
 	}, nil
 }
 
@@ -77,7 +77,7 @@ func (h *HelmHelper) AddRepo(name, url string) error {
 		URL:  url,
 	}
 
-	repo, err := repo.NewChartRepository(chart, getter.All(h.cli))
+	repo, err := repo.NewChartRepository(chart, getter.All(h.settings))
 	if err != nil {
 		return err
 	}
@@ -86,7 +86,7 @@ func (h *HelmHelper) AddRepo(name, url string) error {
 		return err
 	}
 
-	h.repo.Update(chart)
+	h.repoFile.Update(chart)
 
 	if err := h.syncRepoFile(); err != nil {
 		return err
@@ -96,15 +96,15 @@ func (h *HelmHelper) AddRepo(name, url string) error {
 }
 
 func (h *HelmHelper) syncRepoFile() error {
-	return h.repo.WriteFile(h.cli.RepositoryConfig, 0644)
+	return h.repoFile.WriteFile(h.settings.RepositoryConfig, 0644)
 }
 
 func (h *HelmHelper) InstallRelease(name, chart, namespace string, values map[string]interface{}) (*release.Release, error) {
-	install := action.NewInstall(h.cfg)
+	install := action.NewInstall(h.config)
 	install.Namespace = namespace
 	install.ReleaseName = name
 
-	chartPath, err := install.ChartPathOptions.LocateChart(chart, h.cli)
+	chartPath, err := install.ChartPathOptions.LocateChart(chart, h.settings)
 	if err != nil {
 		return nil, err
 	}
