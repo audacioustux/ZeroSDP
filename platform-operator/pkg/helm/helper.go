@@ -71,13 +71,8 @@ func debug(log logr.Logger) func(format string, v ...interface{}) {
 	}
 }
 
-func (h *HelmHelper) AddRepo(name, url string) error {
-	chart := &repo.Entry{
-		Name: name,
-		URL:  url,
-	}
-
-	repo, err := repo.NewChartRepository(chart, getter.All(h.settings))
+func (h *HelmHelper) AddRepo(cfg *repo.Entry) error {
+	repo, err := repo.NewChartRepository(cfg, getter.All(h.settings))
 	if err != nil {
 		return err
 	}
@@ -86,7 +81,7 @@ func (h *HelmHelper) AddRepo(name, url string) error {
 		return err
 	}
 
-	h.repoFile.Update(chart)
+	h.repoFile.Update(cfg)
 
 	if err := h.syncRepoFile(); err != nil {
 		return err
@@ -115,4 +110,18 @@ func (h *HelmHelper) InstallRelease(name, chart, namespace string, values map[st
 	}
 
 	return install.Run(chartRequested, values)
+}
+
+func (h *HelmHelper) GetRelease(name string) (*release.Release, error) {
+	client := action.NewGet(h.config)
+
+	return client.Run(name)
+}
+
+func (h *HelmHelper) IsDeployed(rel *release.Release) (bool, error) {
+	if rel.Info.Status == release.StatusDeployed {
+		return true, nil
+	}
+
+	return false, nil
 }

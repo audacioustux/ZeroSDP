@@ -2,6 +2,3 @@ apiVersion: zerosdp.alo.dev/v1
 kind: Platform
 metadata:
   name: platform-sample
-spec:
-  components:
-    

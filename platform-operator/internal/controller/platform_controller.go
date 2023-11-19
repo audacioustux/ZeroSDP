@@ -19,15 +19,18 @@ package controller
 import (
 	"context"
 
+	// "helm.sh/helm/v3/pkg/repo"
 	"k8s.io/apimachinery/pkg/api/meta"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime"
+	"k8s.io/client-go/tools/record"
 	ctrl "sigs.k8s.io/controller-runtime"
 	"sigs.k8s.io/controller-runtime/pkg/client"
+	"sigs.k8s.io/controller-runtime/pkg/controller"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
 	zerosdpv1 "github.com/audacioustux/zerosdp/platform-operator/api/v1"
-	"github.com/audacioustux/zerosdp/platform-operator/pkg/helm"
+	_ctrl "github.com/audacioustux/zerosdp/platform-operator/pkg/controller"
 
 	"github.com/go-logr/logr"
 )
@@ -35,8 +38,8 @@ import (
 // PlatformReconciler reconciles a Platform object
 type PlatformReconciler struct {
 	client.Client
-	Scheme *runtime.Scheme
-	*helm.HelmHelper
+	Scheme   *runtime.Scheme
+	Recorder record.EventRecorder
 }
 
 //+kubebuilder:rbac:groups=zerosdp.alo.dev,resources=platforms,verbs=get;list;watch;create;update;patch;delete
@@ -87,25 +90,16 @@ func (r PlatformReconciler) reconcile(ctx context.Context, platform *zerosdpv1.P
 	if meta.IsStatusConditionPresentAndEqual(platform.Status.Conditions, string(zerosdpv1.Ready), metav1.ConditionUnknown) {
 		log.Info("Status is unknown")
 
-		if err := r.HelmHelper.AddRepo("examples", "https://helm.github.io/examples"); err != nil {
-			log.Error(err, "Failed to add repo")
-			return ctrl.Result{}, err
-		}
-
-		if _, err := r.HelmHelper.InstallRelease("hello-world", "examples/hello-world", "default", nil); err != nil {
-			log.Error(err, "Failed to install release")
-			return ctrl.Result{}, err
-		}
-
-		return ctrl.Result{}, nil
+		return _ctrl.ShortRequeue(), nil
 	}
 
 	return ctrl.Result{}, nil
 }
 
 // SetupWithManager sets up the controller with the Manager.
-func (r *PlatformReconciler) SetupWithManager(mgr ctrl.Manager) error {
+func (r *PlatformReconciler) SetupWithManager(mgr ctrl.Manager, maxConcurrentReconciles int) error {
 	return ctrl.NewControllerManagedBy(mgr).
 		For(&zerosdpv1.Platform{}).
+		WithOptions(controller.Options{MaxConcurrentReconciles: maxConcurrentReconciles}).
 		Complete(r)
 }
