@@ -23,7 +23,12 @@ import (
 type ConditionType string
 
 const (
-	Ready ConditionType = "Ready"
+	Ready        ConditionType = "Ready"
+	Uninstalling ConditionType = "Uninstalling"
+	Reconciling  ConditionType = "Reconciling"
+	Upgrading    ConditionType = "Upgrading"
+	Failed       ConditionType = "Failed"
+	Paused       ConditionType = "Paused"
 )
 
 type ComponentSpec struct {

@@ -1,0 +1,52 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Cluster
+metadata:
+  name: cluster-example
+spec:
+  instances: 3
+  primaryUpdateStrategy: unsupervised
+  storage:
+    storageClass: csi-hostpath-sc
+    size: 1Gi
+  walStorage:
+    storageClass: csi-hostpath-sc
+    size: 1Gi
+  backup:
+    volumeSnapshot:
+       className: csi-hostpath-snapclass
+    barmanObjectStore:
+      destinationPath: s3://backups/
+      endpointURL: http://minio
+      s3Credentials:
+        accessKeyId:
+          name: minio
+          key: ACCESS_KEY_ID
+        secretAccessKey:
+          name: minio
+          key: ACCESS_SECRET_KEY
+      wal:
+        maxParallel: 8
+        compression: snappy
+---
+apiVersion: postgresql.cnpg.io/v1
+kind: ScheduledBackup
+metadata:
+  name: cluster-example
+spec:
+  cluster:
+    name: cluster-example
+  method: volumeSnapshot
+  schedule: '@daily'
+  backupOwnerReference: cluster
+  immediate: true
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: minio
+  labels:
+    cnpg.io/reload: "true"
+type: Opaque
+stringData:
+  ACCESS_KEY_ID: "8r4xoUzDfkCv564Z"
+  ACCESS_SECRET_KEY: "eXO0ghU4IRnbr3LvGh6OyjKJOEdfbcaI"
