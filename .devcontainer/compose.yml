@@ -2,8 +2,6 @@ services:
   devcontainer:
     build:
       context: .
-    env_file:
-      - .env
     volumes:
       - ../..:/workspaces:rw,cached
     init: true

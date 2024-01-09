@@ -1,4 +1,0 @@
-## Append samples of your project ##
-resources:
-- zerosdp_v1_platform.yaml
-#+kubebuilder:scaffold:manifestskustomizesamples

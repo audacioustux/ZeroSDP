@@ -4,17 +4,3 @@ tasks:
   default:
     cmd: task --list-all
     silent: true
-  dev:platform:
-    dir: platform-operator
-    cmd: make install run
-    env:
-      ENABLE_WEBHOOKS: false
-  dev:platform:watch:
-    dir: platform-operator
-    cmd: |
-      watchexec \
-        --print-events \
-        -i "**/bin/**" \
-        -i "**/zz_generated.deepcopy.go" \
-        -r -e go \
-        -- task dev:platform
